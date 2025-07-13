@@ -1,94 +1,123 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" style="scroll-behavior: smooth;">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Vedic Space | Blog</title>
-  <link rel="stylesheet" href="/assets/style.css">
+  <link rel="stylesheet" href="/assets/style.css" />
   <style>
     body {
+      background-color: #fefaf5;
       font-family: 'Inter', sans-serif;
-      background: linear-gradient(to bottom right, #fff7ed, #fdf1d8);
-      color: #2c1b10;
       margin: 0;
-      padding: 0;
     }
-    header {
-      background: url('/assets/logo.png') no-repeat left center;
-      background-size: 60px;
-      padding: 1rem 2rem 1rem 80px;
-      font-size: 1.5rem;
-      font-weight: bold;
-      color: #61320b;
-      border-bottom: 1px solid #e0cba8;
+    header, footer {
+      background-color: #f7f4f0;
+      padding: 1rem 2rem;
     }
-    .container {
-      max-width: 800px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+    h2 {
+      color: #8B4513;
     }
-    h1, h2, h3 {
-      color: #4a2403;
-    }
-    summary {
-      cursor: pointer;
-      background-color: #eedec4;
-      padding: 1rem;
-      border-radius: 6px;
-      font-weight: bold;
-      margin-bottom: 0.5rem;
-    }
-    details {
-      margin-bottom: 1rem;
-      background: #fdf7ed;
-      border: 1px solid #e7d4b3;
-      border-radius: 6px;
-      padding: 0.5rem 1rem;
-    }
-    .post-meta {
+    .text-serif { font-family: Georgia, serif; }
+    .share-links a {
+      color: #D2691E;
+      text-decoration: none;
+      margin-right: 1rem;
       font-size: 0.9rem;
-      color: #876b51;
-      margin-bottom: 1.5rem;
-    }
-    .post-content p {
-      line-height: 1.7;
-      margin-bottom: 1rem;
-    }
-    footer {
-      text-align: center;
-      font-size: 0.9rem;
-      color: #967856;
-      margin: 4rem 0 2rem;
     }
   </style>
 </head>
 <body>
-  <header>Vedic Space | Blog</header>
-  <div class="container">
-    <div class="post-title">Keshavadasa: The Poet of Bhakti Renaissance</div>
-    <div class="post-meta">By Vedic Space • July 2025</div>
 
-    <details open>
-      <summary>About Keshavadasa</summary>
-      <div class="post-content">
-        <p>Keshavadasa, a poet of immense stature in the Bhakti movement, harmonized classical learning with deep devotional fervor. Known for his exquisite compositions in Brajbhasha, he skillfully adapted Sanskrit themes into a more accessible poetic form that resonated with the common devotee.</p>
-      </div>
-    </details>
+  <!-- Header -->
+  <header class="sticky top-0 z-50 shadow-md">
+    <nav>
+      <span class="text-xl font-bold text-[#8B4513]">Vedic Space</span> |
+      <a href="/index.html" class="text-[#8B4513]">Home</a> |
+      <a href="/blog-homepage.html" class="text-[#D2691E] font-semibold">Blog</a>
+    </nav>
+  </header>
 
-    <details>
-      <summary>Philosophical Themes</summary>
-      <div class="post-content">
-        <p>Much like the rasa-filled canvas of Tulsidas or Surdas, Keshavadasa infused his works with moral instruction and philosophical depth, often drawing from the Puranic themes of Vishnu, Krishna, and Rama.</p>
-      </div>
-    </details>
+  <!-- Blog Section -->
+  <section id="blog-home" class="py-20 px-6 bg-[#fefaf5]">
 
-    <details>
-      <summary>Legacy in Bhakti Poetry</summary>
-      <div class="post-content">
-        <p>His ability to blend ornate poetic style with deep emotion made his writings a bridge between elite scholarship and vernacular devotion. This post is a tribute to his legacy — to the bhakti that elevates, the art that speaks to the heart, and the Vedic lineage that flows through the voice of every true seeker.</p>
+    <!-- Blog 1 -->
+    <article id="blog-vithala" class="mb-20 max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-serif text-[#8B4513] mb-4">Vithala: The Living Rhythm of Bhakti</h2>
+      <p class="text-[#5c3b16] text-sm italic mb-2">By Vedic Space • July 2025</p>
+      <img src="/assets/vithala-blog.jpg" alt="Vithala Murti" class="rounded shadow-md w-full max-w-3xl mx-auto mb-6" />
+      <div class="text-[#4b2f1c] leading-relaxed font-sans text-[1.05rem] space-y-4">
+        <p>In every beat of the mridanga and every syllable of the abhang, the sacred name of Vithala echoes. This name—beloved in Maharashtra, Karnataka, and across Bhakti movements—is more than just devotion; it's lived rhythm.</p>
+        <p>Saints like Purandara Dasa and Kanaka Dasa used simple language to reach cosmic truths, through their songs, often sung barefoot before Vithala of Pandharpur.</p>
+        <p>In this blog, we dive into how chanting “Vithoba Rakhumaayi” sustains both memory and presence—past wisdom and present grace.</p>
       </div>
-    </details>
-  </div>
-  <footer>&copy; 2025 Vedic Space. All rights reserved.</footer>
+      <div class="mt-6 border-t border-[#deb887] pt-4">
+        <div class="share-links mb-4">
+          <a href="https://wa.me/?text=https://vedicspace.in/blog#blog-vithala" target="_blank">WhatsApp</a>
+          <a href="https://twitter.com/intent/tweet?url=https://vedicspace.in/blog#blog-vithala" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://vedicspace.in/blog#blog-vithala" target="_blank">Facebook</a>
+        </div>
+        <div id="disqus_thread"></div>
+      </div>
+    </article>
+
+    <!-- Blog 2 -->
+    <article id="blog-dasa" class="mb-20 max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-serif text-[#8B4513] mb-4">The Hidden Codes in Haridasa Kritis</h2>
+      <p class="text-[#5c3b16] text-sm italic mb-2">By Vedic Space • June 2025</p>
+      <img src="/assets/dasa-lyrics.jpg" alt="Haridasa Kriti" class="rounded shadow-md w-full max-w-3xl mx-auto mb-6" />
+      <div class="text-[#4b2f1c] leading-relaxed font-sans text-[1.05rem] space-y-4">
+        <p>What meanings lie beneath the poetic riddles of Kanakadasa?</p>
+        <p>From metaphors of cows and rivers to playful challenges to caste—his kritis hide deep Vedantic codes.</p>
+      </div>
+      <div class="mt-6 border-t border-[#deb887] pt-4">
+        <div class="share-links mb-4">
+          <a href="https://wa.me/?text=https://vedicspace.in/blog#blog-dasa" target="_blank">WhatsApp</a>
+          <a href="https://twitter.com/intent/tweet?url=https://vedicspace.in/blog#blog-dasa" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://vedicspace.in/blog#blog-dasa" target="_blank">Facebook</a>
+        </div>
+        <div id="disqus_thread"></div>
+      </div>
+    </article>
+
+    <!-- Blog 3 -->
+    <article id="blog-rasa" class="mb-20 max-w-4xl mx-auto px-4">
+      <h2 class="text-3xl font-serif text-[#8B4513] mb-4">Rasa: How Devotional Music Moves the Soul</h2>
+      <p class="text-[#5c3b16] text-sm italic mb-2">By Vedic Space • May 2025</p>
+      <img src="/assets/rasa-devotion.jpg" alt="Rasa Devotion" class="rounded shadow-md w-full max-w-3xl mx-auto mb-6" />
+      <div class="text-[#4b2f1c] leading-relaxed font-sans text-[1.05rem] space-y-4">
+        <p>Rasa isn't just flavor—it's emotional alchemy.</p>
+        <p>How sacred sound opens the heart chakra, and why Haridasa ragas are more than performance—they are practice.</p>
+      </div>
+      <div class="mt-6 border-t border-[#deb887] pt-4">
+        <div class="share-links mb-4">
+          <a href="https://wa.me/?text=https://vedicspace.in/blog#blog-rasa" target="_blank">WhatsApp</a>
+          <a href="https://twitter.com/intent/tweet?url=https://vedicspace.in/blog#blog-rasa" target="_blank">X</a>
+          <a href="https://www.facebook.com/sharer/sharer.php?u=https://vedicspace.in/blog#blog-rasa" target="_blank">Facebook</a>
+        </div>
+        <div id="disqus_thread"></div>
+      </div>
+    </article>
+  </section>
+
+  <!-- Footer -->
+  <footer class="text-center text-sm py-6 text-[#967856]">
+    © 2025 Vedic Space. All rights reserved.
+  </footer>
+
+  <!-- Disqus Comment Script -->
+  <script>
+    var disqus_config = function () {
+      this.page.url = window.location.href;
+      this.page.identifier = window.location.hash;
+    };
+    (function () {
+      var d = document, s = d.createElement('script');
+      s.src = 'https://YOUR-DISQUS-SHORTNAME.disqus.com/embed.js';
+      s.setAttribute('data-timestamp', +new Date());
+      (d.head || d.body).appendChild(s);
+    })();
+  </script>
+
 </body>
 </html>
