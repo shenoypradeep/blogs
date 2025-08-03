@@ -6,371 +6,486 @@
     <title>Reflections & Blogs | Vedic Space - Sacred Wisdom for Daily Practice</title>
     <meta name="description" content="Gentle essays on mantra, breath, practice, and everyday Dharma. A quiet space for thought, best read slowly, maybe more than once.">
     
-    <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Crimson+Text:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Google Fonts - Using same fonts as main page -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Feather Icons -->
+    <script src="https://unpkg.com/feather-icons"></script>
     
     <style>
-        /* Reset and Base Styles */
-        *, ::before, ::after {
-            box-sizing: border-box;
+        * {
             margin: 0;
             padding: 0;
+            box-sizing: border-box;
         }
-        
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --deep-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --text-gray: #64748b;
+            --dark-gray: #334155;
+        }
+
         body {
             font-family: 'Inter', sans-serif;
             line-height: 1.6;
-            color: #4a1a4a;
-            background-color: #f7f4f0;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+            min-height: 100vh;
         }
-        
-        .font-serif {
-            font-family: 'Crimson Text', serif;
+
+        .serif {
+            font-family: 'Playfair Display', serif;
         }
-        
-        .font-sans {
-            font-family: 'Inter', sans-serif;
+
+        .sanskrit {
+            font-family: 'Noto Sans Devanagari', sans-serif;
         }
-        
-        /* Color Variables */
-        :root {
-            --primary-purple: #4a1a4a;
-            --primary-brown: #8B4513;
-            --secondary-brown: #D2691E;
-            --light-brown: #F4A460;
-            --cream: #f7f4f0;
-            --dark-brown: #654321;
-        }
-        
-        /* Utility Classes */
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 1.5rem;
+            padding: 0 20px;
         }
-        
-        .text-center { text-align: center; }
-        .hidden { display: none; }
-        .flex { display: flex; }
-        .items-center { align-items: center; }
-        .justify-between { justify-content: space-between; }
-        .justify-center { justify-content: center; }
-        .space-x-8 > * + * { margin-left: 2rem; }
-        .space-x-4 > * + * { margin-left: 1rem; }
-        .space-y-6 > * + * { margin-top: 1.5rem; }
-        .space-y-4 > * + * { margin-top: 1rem; }
-        .space-y-2 > * + * { margin-top: 0.5rem; }
-        
-        /* Sticky Header */
+
+        /* Header - Same as main page */
         .header {
-            background-color: rgba(247, 244, 240, 0.95);
-            backdrop-filter: blur(10px);
-            padding: 1.5rem 0;
-            position: sticky;
+            position: fixed;
             top: 0;
-            z-index: 50;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-            border-bottom: 1px solid rgba(139, 69, 19, 0.1);
+            width: 100%;
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            z-index: 1000;
+            padding: 15px 0;
         }
-        
+
+        .nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
         .logo {
             display: flex;
             align-items: center;
-            gap: 0.75rem;
+            gap: 10px;
+            color: var(--white);
             text-decoration: none;
-        }
-        
-        .logo-icon {
-            width: 3rem;
-            height: 3rem;
-            background-color: var(--primary-purple);
-            border-radius: 0.25rem;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .logo-text {
-            color: var(--primary-purple);
-            font-size: 1.125rem;
+            font-size: 24px;
             font-weight: 600;
         }
-        
-        .logo-subtitle {
-            color: var(--primary-brown);
-            font-size: 0.75rem;
-            letter-spacing: 0.2em;
-            text-transform: uppercase;
+
+        .logo img {
+            width: 40px;
+            height: 40px;
         }
-        
-        .nav-link {
-            color: var(--primary-brown);
+
+        .nav-links {
+            display: none;
+            gap: 30px;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--white);
             text-decoration: none;
-            font-size: 0.875rem;
-            letter-spacing: 0.1em;
+            font-weight: 500;
+            transition: color 0.3s;
+            font-size: 14px;
             text-transform: uppercase;
-            transition: color 0.3s ease;
+            letter-spacing: 0.1em;
         }
-        
-        .nav-link:hover {
-            color: var(--secondary-brown);
+
+        .nav-links a:hover {
+            color: var(--light-gold);
         }
-        
+
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            padding: 12px 24px;
+            border-radius: 25px;
+            text-decoration: none;
+            font-weight: 600;
+            transition: transform 0.3s, box-shadow 0.3s;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .cta-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Mobile Menu */
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--white);
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .mobile-nav {
+            display: none;
+            position: absolute;
+            top: 100%;
+            left: 0;
+            right: 0;
+            background: rgba(30, 58, 138, 0.98);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-top: 1px solid rgba(251, 191, 36, 0.2);
+        }
+
+        .mobile-nav.active {
+            display: block;
+        }
+
+        .mobile-nav a {
+            display: block;
+            color: var(--white);
+            text-decoration: none;
+            padding: 15px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
         /* Hero Section */
         .hero {
-            padding: 4rem 0;
-            background: linear-gradient(135deg, var(--cream) 0%, #f0ebe5 100%);
+            padding: 120px 0 80px;
             text-align: center;
+            color: var(--white);
+            position: relative;
+            overflow: hidden;
         }
-        
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(251,191,36,0.1)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 1;
+        }
+
         .hero-badge {
-            display: inline-block;
-            background-color: var(--secondary-brown);
-            color: white;
-            padding: 0.5rem 1rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
-            letter-spacing: 0.1em;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: rgba(251, 191, 36, 0.2);
+            color: var(--light-gold);
+            padding: 8px 20px;
+            border-radius: 20px;
+            font-size: 14px;
+            font-weight: 500;
+            margin-bottom: 30px;
+            border: 1px solid rgba(251, 191, 36, 0.3);
             text-transform: uppercase;
-            margin-bottom: 2rem;
+            letter-spacing: 0.1em;
         }
-        
-        .hero-title {
-            font-size: 3rem;
+
+        .hero h1 {
+            font-size: clamp(3rem, 8vw, 5rem);
+            font-weight: 300;
+            margin-bottom: 20px;
             line-height: 1.1;
-            margin-bottom: 1.5rem;
-            color: var(--primary-brown);
         }
-        
-        .hero-subtitle {
-            font-size: 1.125rem;
-            color: var(--primary-brown);
-            margin-bottom: 2rem;
+
+        .hero .highlight {
+            color: var(--light-gold);
+        }
+
+        .hero p {
+            font-size: 18px;
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            opacity: 0.8;
+            opacity: 0.9;
+            line-height: 1.7;
         }
-        
+
         .divider {
-            width: 4rem;
-            height: 2px;
-            background-color: var(--secondary-brown);
-            margin: 0 auto 2rem;
+            width: 80px;
+            height: 3px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            margin: 30px auto;
+            border-radius: 2px;
         }
-        
-        /* Blog Grid */
-        .blog-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 2rem;
-            margin-bottom: 3rem;
-        }
-        
-        .blog-card {
-            background-color: rgba(255, 255, 255, 0.8);
-            backdrop-filter: blur(4px);
-            border-radius: 0.5rem;
-            padding: 2rem;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            text-decoration: none;
-            color: inherit;
-        }
-        
-        .blog-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        }
-        
-        .blog-meta {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 1rem;
-            font-size: 0.875rem;
-            color: var(--secondary-brown);
-        }
-        
-        .blog-category {
-            background-color: var(--light-brown);
-            color: white;
-            padding: 0.25rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-        }
-        
-        .blog-title {
-            font-size: 1.5rem;
-            color: var(--primary-brown);
-            margin-bottom: 1rem;
-            line-height: 1.3;
-        }
-        
-        .blog-excerpt {
-            color: var(--primary-brown);
-            opacity: 0.8;
-            line-height: 1.6;
-            margin-bottom: 1rem;
-        }
-        
-        .read-more {
-            color: var(--secondary-brown);
-            font-weight: 500;
-            text-transform: uppercase;
-            letter-spacing: 0.1em;
-            font-size: 0.875rem;
-        }
-        
+
         /* Categories Filter */
+        .categories-section {
+            padding: 60px 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+        }
+
         .categories-filter {
             display: flex;
             justify-content: center;
-            gap: 1rem;
-            margin-bottom: 3rem;
+            gap: 15px;
+            margin-bottom: 60px;
             flex-wrap: wrap;
         }
-        
+
         .category-btn {
-            background-color: transparent;
-            border: 2px solid var(--primary-brown);
-            color: var(--primary-brown);
-            padding: 0.5rem 1.5rem;
-            border-radius: 9999px;
-            font-size: 0.875rem;
+            background: transparent;
+            border: 2px solid var(--light-gold);
+            color: var(--light-gold);
+            padding: 12px 24px;
+            border-radius: 25px;
+            font-size: 14px;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             cursor: pointer;
             transition: all 0.3s ease;
+            font-weight: 500;
         }
-        
+
         .category-btn:hover,
         .category-btn.active {
-            background-color: var(--primary-brown);
-            color: white;
+            background: var(--light-gold);
+            color: var(--primary-blue);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(251, 191, 36, 0.3);
         }
-        
-        /* Sections */
-        .section {
-            padding: 4rem 0;
+
+        /* Blog Grid */
+        .blog-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 40px;
+            margin-bottom: 60px;
         }
-        
-        .section-title {
-            font-size: 2.5rem;
-            color: var(--primary-brown);
-            margin-bottom: 1rem;
+
+        .blog-card {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+            border-color: rgba(251, 191, 36, 0.4);
+        }
+
+        .blog-meta {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+            font-size: 14px;
+            color: var(--light-gold);
+        }
+
+        .blog-category {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            padding: 6px 16px;
+            border-radius: 20px;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-weight: 600;
+        }
+
+        .blog-title {
+            font-size: 24px;
+            color: var(--white);
+            margin-bottom: 15px;
+            line-height: 1.3;
+            font-weight: 600;
+        }
+
+        .blog-excerpt {
+            color: rgba(255, 255, 255, 0.8);
+            line-height: 1.7;
+            margin-bottom: 20px;
+        }
+
+        .read-more {
+            color: var(--light-gold);
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 14px;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        /* Newsletter Section */
+        .newsletter {
+            padding: 100px 0;
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
             text-align: center;
         }
-        
-        .section-subtitle {
-            font-size: 1.125rem;
-            color: var(--primary-brown);
-            text-align: center;
-            margin-bottom: 3rem;
-            opacity: 0.8;
+
+        .newsletter h2 {
+            font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 300;
+            margin-bottom: 20px;
+            color: var(--white);
+        }
+
+        .newsletter p {
+            font-size: 20px;
+            color: rgba(255, 255, 255, 0.8);
+            margin-bottom: 40px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
         }
-        
-        /* Newsletter */
-        .newsletter {
-            background: linear-gradient(135deg, var(--primary-brown) 0%, var(--dark-brown) 100%);
-            color: white;
-            padding: 4rem 0;
-            text-align: center;
-        }
-        
+
         .newsletter-form {
-            max-width: 400px;
+            max-width: 500px;
             margin: 0 auto;
             display: flex;
-            gap: 1rem;
+            gap: 15px;
         }
-        
+
         .newsletter-input {
             flex: 1;
-            padding: 0.75rem 1rem;
-            border: none;
-            border-radius: 0.375rem;
-            font-size: 1rem;
+            padding: 15px 20px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 25px;
+            font-size: 16px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            backdrop-filter: blur(10px);
         }
-        
+
+        .newsletter-input::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
         .newsletter-btn {
-            background-color: var(--secondary-brown);
-            color: white;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
             border: none;
-            padding: 0.75rem 1.5rem;
-            border-radius: 0.375rem;
+            padding: 15px 30px;
+            border-radius: 25px;
             font-weight: 600;
             text-transform: uppercase;
             letter-spacing: 0.1em;
             cursor: pointer;
-            transition: background-color 0.3s ease;
+            transition: all 0.3s ease;
+            font-size: 14px;
         }
-        
+
         .newsletter-btn:hover {
-            background-color: var(--light-brown);
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(245, 158, 11, 0.3);
         }
-        
+
         /* Footer */
         .footer {
-            background-color: var(--primary-brown);
-            color: white;
-            padding: 3rem 0 2rem;
+            background: rgba(30, 58, 138, 0.8);
+            backdrop-filter: blur(10px);
+            color: var(--white);
+            padding: 60px 0 40px;
+            border-top: 1px solid rgba(251, 191, 36, 0.2);
         }
-        
+
         .footer-grid {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 2rem;
-            margin-bottom: 2rem;
+            gap: 40px;
+            margin-bottom: 40px;
         }
-        
+
         .footer-title {
-            font-size: 1.125rem;
-            margin-bottom: 1rem;
+            font-size: 20px;
+            margin-bottom: 20px;
             font-weight: 600;
+            color: var(--light-gold);
         }
-        
+
         .footer-link {
             color: rgba(255, 255, 255, 0.8);
             text-decoration: none;
             display: block;
-            margin-bottom: 0.5rem;
+            margin-bottom: 10px;
             transition: color 0.3s ease;
+            font-size: 14px;
         }
-        
+
         .footer-link:hover {
-            color: white;
+            color: var(--light-gold);
         }
-        
+
         .footer-bottom {
             border-top: 1px solid rgba(255, 255, 255, 0.2);
-            padding-top: 2rem;
+            padding-top: 30px;
             text-align: center;
             color: rgba(255, 255, 255, 0.6);
         }
-        
+
+        .footer-logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            margin-bottom: 20px;
+        }
+
+        .footer-logo img {
+            width: 30px;
+            height: 30px;
+        }
+
         /* Responsive Design */
-        @media (max-width: 768px) {
+        @media (min-width: 768px) {
+            .nav-links {
+                display: flex;
+            }
+            
+            .newsletter-form {
+                flex-direction: row;
+            }
+        }
+
+        @media (max-width: 767px) {
+            .container {
+                padding: 0 15px;
+            }
+            
             .nav-links {
                 display: none;
             }
             
-            .hero-title {
-                font-size: 2.5rem;
+            .mobile-menu-btn {
+                display: block;
             }
             
-            .section-title {
-                font-size: 2rem;
-            }
-            
-            .container {
-                padding: 0 1rem;
+            .hero {
+                padding: 100px 0 60px;
             }
             
             .blog-grid {
@@ -380,17 +495,32 @@
             .newsletter-form {
                 flex-direction: column;
             }
-        }
-        
-        @media (max-width: 480px) {
-            .hero-title {
-                font-size: 2rem;
-            }
             
             .categories-filter {
                 flex-direction: column;
                 align-items: center;
             }
+        }
+
+        /* Smooth scrolling */
+        html {
+            scroll-behavior: smooth;
+        }
+
+        /* Animation */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .fade-in {
+            animation: fadeInUp 0.8s ease-out;
         }
     </style>
 </head>
@@ -399,131 +529,161 @@
     <!-- Header -->
     <header class="header">
         <div class="container">
-            <div class="flex items-center justify-between">
-                <a href="/" class="logo">
-                    <div class="logo-icon">
-                        <div style="width: 0.75rem; height: 0.75rem; border: 1px solid rgba(255,255,255,0.6); border-radius: 0.125rem;"></div>
-                    </div>
-                    <div>
-                        <div class="logo-text font-serif">Vedic Space</div>
-                        <div class="logo-subtitle font-sans">Reflections & Blogs</div>
-                    </div>
+            <nav class="nav">
+                <a href="/" class="logo serif">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vedic%20Space%20-%20old%20lotus%20nada%20nirvana-rlImW4sxJh6tvJRcA3ltTrrQjtmlFm.png" alt="Vedic Space">
+                    Vedic Space
                 </a>
-                
-                <nav class="nav-links flex items-center space-x-8">
-                    <a href="/" class="nav-link font-sans">Home</a>
-                    <a href="/categories.html" class="nav-link font-sans">Categories</a>
-                    <a href="/archive.html" class="nav-link font-sans">Archive</a>
-                    <a href="https://vedicspace.in" class="nav-link font-sans">Main Site</a>
-                </nav>
-            </div>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/archive.html">Archive</a></li>
+                    <li><a href="https://vedicspace.in">Main Site</a></li>
+                </ul>
+                <a href="https://vishnu.vedicspace.in" class="cta-btn">Start Sādhana</a>
+                <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+            </nav>
+            
+            <nav id="mobileNav" class="mobile-nav">
+                <a href="/">Home</a>
+                <a href="/categories.html">Categories</a>
+                <a href="/archive.html">Archive</a>
+                <a href="https://vedicspace.in">Main Site</a>
+            </nav>
         </div>
     </header>
 
     <!-- Hero Section -->
     <section class="hero">
         <div class="container">
-            <div class="hero-badge font-sans">📖 Sacred Reflections • Living Wisdom</div>
-            <h1 class="hero-title font-serif">Reflections & Blogs</h1>
-            <div class="divider"></div>
-            <p class="hero-subtitle font-sans">
-                Gentle essays on mantra, breath, practice, and everyday Dharma. 
-                A quiet space for thought, best read slowly, maybe more than once.
-            </p>
+            <div class="hero-content fade-in">
+                <div class="hero-badge">
+                    📖 Sacred Reflections • Living Wisdom
+                </div>
+                
+                <h1 class="serif">
+                    <span class="highlight">Reflections</span> & Blogs
+                </h1>
+                
+                <div class="divider"></div>
+                
+                <p>
+                    Gentle essays on mantra, breath, practice, and everyday Dharma. 
+                    A quiet space for thought, best read slowly, maybe more than once.
+                </p>
+            </div>
         </div>
     </section>
 
-    <!-- Categories Filter -->
-    <section class="section">
+    <!-- Categories & Blog Posts -->
+    <section class="categories-section">
         <div class="container">
             <div class="categories-filter">
-                <button class="category-btn active font-sans" data-category="all">All Posts</button>
-                <button class="category-btn font-sans" data-category="mantra">Mantra</button>
-                <button class="category-btn font-sans" data-category="breath">Breath</button>
-                <button class="category-btn font-sans" data-category="practice">Practice</button>
-                <button class="category-btn font-sans" data-category="dharma">Everyday Dharma</button>
-                <button class="category-btn font-sans" data-category="reflection">Reflection</button>
+                <button class="category-btn active" data-category="all">All Posts</button>
+                <button class="category-btn" data-category="mantra">Mantra</button>
+                <button class="category-btn" data-category="breath">Breath</button>
+                <button class="category-btn" data-category="practice">Practice</button>
+                <button class="category-btn" data-category="dharma">Everyday Dharma</button>
+                <button class="category-btn" data-category="reflection">Reflection</button>
             </div>
 
             <!-- Featured Posts -->
             <div class="blog-grid">
-                <a href="/post-1.html" class="blog-card" data-category="mantra">
+                <a href="/post-1.html" class="blog-card fade-in" data-category="mantra">
                     <div class="blog-meta">
                         <span class="blog-category">Mantra</span>
                         <span>December 15, 2024</span>
                     </div>
-                    <h2 class="blog-title font-serif">The Sacred Sound of Om: Gateway to Inner Silence</h2>
-                    <p class="blog-excerpt font-sans">
+                    <h2 class="blog-title serif">The Sacred Sound of Om: Gateway to Inner Silence</h2>
+                    <p class="blog-excerpt">
                         In the beginning was the Word, and the Word was Om. This primordial sound carries within it 
                         the entire universe—creation, preservation, and dissolution. When we chant Om with awareness, 
                         we align ourselves with the cosmic rhythm...
                     </p>
-                    <span class="read-more font-sans">Continue Reading →</span>
+                    <span class="read-more">
+                        Continue Reading
+                        <i data-feather="arrow-right" size="16"></i>
+                    </span>
                 </a>
 
-                <a href="/post-2.html" class="blog-card" data-category="breath">
+                <a href="/post-2.html" class="blog-card fade-in" data-category="breath">
                     <div class="blog-meta">
                         <span class="blog-category">Breath</span>
                         <span>December 12, 2024</span>
                     </div>
-                    <h2 class="blog-title font-serif">Pranayama: The Bridge Between Body and Soul</h2>
-                    <p class="blog-excerpt font-sans">
+                    <h2 class="blog-title serif">Pranayama: The Bridge Between Body and Soul</h2>
+                    <p class="blog-excerpt">
                         Breath is the thread that weaves together our physical and spiritual existence. Through conscious 
                         breathing, we discover that each inhalation is a gift, each exhalation a surrender...
                     </p>
-                    <span class="read-more font-sans">Continue Reading →</span>
+                    <span class="read-more">
+                        Continue Reading
+                        <i data-feather="arrow-right" size="16"></i>
+                    </span>
                 </a>
 
-                <a href="/post-3.html" class="blog-card" data-category="practice">
+                <a href="/post-3.html" class="blog-card fade-in" data-category="practice">
                     <div class="blog-meta">
                         <span class="blog-category">Practice</span>
                         <span>December 10, 2024</span>
                     </div>
-                    <h2 class="blog-title font-serif">Creating Sacred Space in Daily Life</h2>
-                    <p class="blog-excerpt font-sans">
+                    <h2 class="blog-title serif">Creating Sacred Space in Daily Life</h2>
+                    <p class="blog-excerpt">
                         Every moment offers an opportunity for sacred practice. Whether washing dishes or walking to work, 
                         we can transform ordinary activities into gateways for presence and awareness...
                     </p>
-                    <span class="read-more font-sans">Continue Reading →</span>
+                    <span class="read-more">
+                        Continue Reading
+                        <i data-feather="arrow-right" size="16"></i>
+                    </span>
                 </a>
 
-                <a href="/post-4.html" class="blog-card" data-category="dharma">
+                <a href="/post-4.html" class="blog-card fade-in" data-category="dharma">
                     <div class="blog-meta">
                         <span class="blog-category">Everyday Dharma</span>
                         <span>December 8, 2024</span>
                     </div>
-                    <h2 class="blog-title font-serif">The Art of Mindful Listening</h2>
-                    <p class="blog-excerpt font-sans">
+                    <h2 class="blog-title serif">The Art of Mindful Listening</h2>
+                    <p class="blog-excerpt">
                         In our rush to be heard, we often forget the sacred art of listening. True listening is a form of 
                         meditation, a way of honoring the divine presence in every conversation...
                     </p>
-                    <span class="read-more font-sans">Continue Reading →</span>
+                    <span class="read-more">
+                        Continue Reading
+                        <i data-feather="arrow-right" size="16"></i>
+                    </span>
                 </a>
 
-                <a href="/post-5.html" class="blog-card" data-category="reflection">
+                <a href="/post-5.html" class="blog-card fade-in" data-category="reflection">
                     <div class="blog-meta">
                         <span class="blog-category">Reflection</span>
                         <span>December 5, 2024</span>
                     </div>
-                    <h2 class="blog-title font-serif">Silence: The Language of the Soul</h2>
-                    <p class="blog-excerpt font-sans">
+                    <h2 class="blog-title serif">Silence: The Language of the Soul</h2>
+                    <p class="blog-excerpt">
                         In the depths of silence, we find answers that words cannot provide. This sacred pause between 
                         thoughts is where wisdom dwells, where the soul speaks its truth...
                     </p>
-                    <span class="read-more font-sans">Continue Reading →</span>
+                    <span class="read-more">
+                        Continue Reading
+                        <i data-feather="arrow-right" size="16"></i>
+                    </span>
                 </a>
 
-                <a href="/post-6.html" class="blog-card" data-category="mantra">
+                <a href="/post-6.html" class="blog-card fade-in" data-category="mantra">
                     <div class="blog-meta">
                         <span class="blog-category">Mantra</span>
                         <span>December 3, 2024</span>
                     </div>
-                    <h2 class="blog-title font-serif">Japa Meditation: The Gentle Path to Concentration</h2>
-                    <p class="blog-excerpt font-sans">
+                    <h2 class="blog-title serif">Japa Meditation: The Gentle Path to Concentration</h2>
+                    <p class="blog-excerpt">
                         The repetition of sacred sounds creates a rhythm that calms the mind and opens the heart. 
                         In japa meditation, we discover that simplicity is the highest sophistication...
                     </p>
-                    <span class="read-more font-sans">Continue Reading →</span>
+                    <span class="read-more">
+                        Continue Reading
+                        <i data-feather="arrow-right" size="16"></i>
+                    </span>
                 </a>
             </div>
         </div>
@@ -532,13 +692,14 @@
     <!-- Newsletter -->
     <section class="newsletter">
         <div class="container">
-            <h2 class="section-title font-serif" style="color: white; margin-bottom: 1rem;">Stay Connected</h2>
-            <p class="section-subtitle font-sans" style="color: rgba(255,255,255,0.9); margin-bottom: 2rem;">
+            <h2 class="serif">Stay Connected</h2>
+            <div class="divider"></div>
+            <p>
                 Receive gentle reminders and new reflections directly in your inbox
             </p>
             <form class="newsletter-form">
-                <input type="email" class="newsletter-input font-sans" placeholder="Your email address" required>
-                <button type="submit" class="newsletter-btn font-sans">Subscribe</button>
+                <input type="email" class="newsletter-input" placeholder="Your email address" required>
+                <button type="submit" class="newsletter-btn">Subscribe</button>
             </form>
         </div>
     </section>
@@ -548,11 +709,9 @@
         <div class="container">
             <div class="footer-grid">
                 <div>
-                    <div class="flex items-center space-x-4" style="margin-bottom: 1rem;">
-                        <div style="width: 1.5rem; height: 1.5rem; background-color: var(--primary-purple); border-radius: 0.125rem; display: flex; align-items: center; justify-content: center;">
-                            <div style="width: 0.75rem; height: 0.75rem; border: 1px solid rgba(255,255,255,0.6); border-radius: 0.125rem;"></div>
-                        </div>
-                        <span class="footer-title font-serif">Vedic Space</span>
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vedic%20Space%20-%20old%20lotus%20nada%20nirvana-rlImW4sxJh6tvJRcA3ltTrrQjtmlFm.png" alt="Vedic Space">
+                        <span class="footer-title serif">Vedic Space</span>
                     </div>
                     <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
                         A sacred digital sanctuary for chanting, breath, and quiet reflection. 
@@ -561,37 +720,55 @@
                 </div>
                 
                 <div>
-                    <h4 class="footer-title font-serif">Explore</h4>
-                    <a href="/categories.html" class="footer-link font-sans">Categories</a>
-                    <a href="/archive.html" class="footer-link font-sans">Archive</a>
-                    <a href="/" class="footer-link font-sans">Latest Posts</a>
-                    <a href="#" class="footer-link font-sans">Newsletter</a>
+                    <h4 class="footer-title serif">Explore</h4>
+                    <a href="/categories.html" class="footer-link">Categories</a>
+                    <a href="/archive.html" class="footer-link">Archive</a>
+                    <a href="/" class="footer-link">Latest Posts</a>
+                    <a href="#" class="footer-link">Newsletter</a>
                 </div>
                 
                 <div>
-                    <h4 class="footer-title font-serif">Topics</h4>
-                    <a href="#" class="footer-link font-sans">Mantra</a>
-                    <a href="#" class="footer-link font-sans">Breath Work</a>
-                    <a href="#" class="footer-link font-sans">Daily Practice</a>
-                    <a href="#" class="footer-link font-sans">Reflection</a>
+                    <h4 class="footer-title serif">Topics</h4>
+                    <a href="#" class="footer-link">Mantra</a>
+                    <a href="#" class="footer-link">Breath Work</a>
+                    <a href="#" class="footer-link">Daily Practice</a>
+                    <a href="#" class="footer-link">Reflection</a>
                 </div>
                 
                 <div>
-                    <h4 class="footer-title font-serif">Connect</h4>
-                    <a href="https://vedicspace.in" class="footer-link font-sans">Main Site</a>
-                    <a href="https://vishnu.vedicspace.in" class="footer-link font-sans">VSS Sadhana</a>
-                    <a href="https://arts.vedicspace.in" class="footer-link font-sans">Sacred Arts</a>
-                    <a href="#" class="footer-link font-sans">Community</a>
+                    <h4 class="footer-title serif">Connect</h4>
+                    <a href="https://vedicspace.in" class="footer-link">Main Site</a>
+                    <a href="https://vishnu.vedicspace.in" class="footer-link">VSS Sadhana</a>
+                    <a href="https://arts.vedicspace.in" class="footer-link">Sacred Arts</a>
+                    <a href="#" class="footer-link">Community</a>
                 </div>
             </div>
             
             <div class="footer-bottom">
-                <p class="font-sans">© 2024 Vedic Space. All rights reserved. A sacred space for authentic practice.</p>
+                <p>© 2024 Vedic Space. All rights reserved. A sacred space for authentic practice.</p>
             </div>
         </div>
     </footer>
 
     <script>
+        // Initialize Feather icons
+        feather.replace();
+        
+        function toggleMobileMenu() {
+            const mobileNav = document.getElementById('mobileNav');
+            mobileNav.classList.toggle('active');
+        }
+        
+        // Close mobile menu when clicking outside
+        document.addEventListener('click', function(event) {
+            const mobileNav = document.getElementById('mobileNav');
+            const menuBtn = document.querySelector('.mobile-menu-btn');
+            
+            if (!mobileNav.contains(event.target) && !menuBtn.contains(event.target)) {
+                mobileNav.classList.remove('active');
+            }
+        });
+        
         // Category filtering functionality
         document.addEventListener('DOMContentLoaded', function() {
             const categoryBtns = document.querySelectorAll('.category-btn');
@@ -624,6 +801,39 @@
                 alert('Thank you for subscribing! We\'ll send you gentle reminders and new reflections.');
                 this.querySelector('input').value = '';
             });
+        });
+
+        // Header background on scroll
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(30, 58, 138, 0.98)';
+            } else {
+                header.style.background = 'rgba(30, 58, 138, 0.95)';
+            }
+        });
+
+        // Simple fade-in animation on scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.fade-in').forEach(el => {
+            el.style.opacity = '0';
+            el.style.transform = 'translateY(20px)';
+            el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(el);
         });
     </script>
 </body>
