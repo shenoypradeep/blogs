@@ -1,0 +1,1204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vedic Space Blog Post Creator - Enhanced</title>
+    
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --primary-blue: #1e3a8a;
+            --deep-blue: #1e40af;
+            --light-blue: #3b82f6;
+            --accent-gold: #f59e0b;
+            --light-gold: #fbbf24;
+            --white: #ffffff;
+            --light-gray: #f8fafc;
+            --text-gray: #64748b;
+            --dark-gray: #334155;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+            min-height: 100vh;
+        }
+
+        .serif {
+            font-family: 'Playfair Display', serif;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* Header */
+        .header {
+            background: rgba(30, 58, 138, 0.95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            padding: 20px 0;
+            margin-bottom: 40px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: var(--white);
+            text-decoration: none;
+            font-size: 28px;
+            font-weight: 600;
+            justify-content: center;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: var(--accent-gold);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: var(--primary-blue);
+            font-size: 24px;
+        }
+
+        /* Main Layout */
+        .main-layout {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            min-height: calc(100vh - 200px);
+        }
+
+        /* Editor Panel */
+        .editor-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 20px;
+            padding: 30px;
+            overflow-y: auto;
+            max-height: calc(100vh - 200px);
+        }
+
+        .editor-title {
+            font-size: 24px;
+            color: var(--light-gold);
+            margin-bottom: 30px;
+            text-align: center;
+            font-weight: 600;
+        }
+
+        .form-group {
+            margin-bottom: 25px;
+        }
+
+        .form-label {
+            display: block;
+            color: var(--light-gold);
+            font-weight: 600;
+            margin-bottom: 8px;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .form-input, .form-select, .form-textarea {
+            width: 100%;
+            padding: 12px 16px;
+            border: 2px solid rgba(251, 191, 36, 0.3);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.1);
+            color: var(--white);
+            font-size: 16px;
+            font-family: 'Inter', sans-serif;
+            backdrop-filter: blur(10px);
+            transition: border-color 0.3s ease;
+        }
+
+        .form-input:focus, .form-select:focus, .form-textarea:focus {
+            outline: none;
+            border-color: var(--light-gold);
+        }
+
+        .form-input::placeholder, .form-textarea::placeholder {
+            color: rgba(255, 255, 255, 0.6);
+        }
+
+        .form-textarea {
+            min-height: 120px;
+            resize: vertical;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .content-textarea {
+            min-height: 300px;
+        }
+
+        /* File Upload Styles */
+        .file-upload {
+            position: relative;
+            display: inline-block;
+            width: 100%;
+        }
+
+        .file-upload-input {
+            position: absolute;
+            opacity: 0;
+            width: 100%;
+            height: 100%;
+            cursor: pointer;
+        }
+
+        .file-upload-label {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            padding: 20px;
+            border: 2px dashed rgba(251, 191, 36, 0.5);
+            border-radius: 8px;
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--light-gold);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .file-upload-label:hover {
+            border-color: var(--light-gold);
+            background: rgba(251, 191, 36, 0.1);
+        }
+
+        .file-preview {
+            margin-top: 15px;
+            padding: 15px;
+            background: rgba(255, 255, 255, 0.1);
+            border-radius: 8px;
+            display: none;
+        }
+
+        .file-preview.show {
+            display: block;
+        }
+
+        .file-preview img {
+            max-width: 100%;
+            max-height: 200px;
+            border-radius: 8px;
+            margin-bottom: 10px;
+        }
+
+        .file-info {
+            font-size: 14px;
+            color: rgba(255, 255, 255, 0.8);
+        }
+
+        /* Dynamic Sections */
+        .dynamic-section {
+            border: 1px solid rgba(251, 191, 36, 0.3);
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            background: rgba(255, 255, 255, 0.02);
+        }
+
+        .section-header {
+            display: flex;
+            justify-content: between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+        .section-title {
+            color: var(--light-gold);
+            font-weight: 600;
+            font-size: 16px;
+            flex: 1;
+        }
+
+        .remove-btn {
+            background: #dc2626;
+            color: white;
+            border: none;
+            padding: 8px 12px;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 12px;
+            transition: background 0.3s ease;
+        }
+
+        .remove-btn:hover {
+            background: #b91c1c;
+        }
+
+        .add-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-weight: 600;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            transition: all 0.3s ease;
+            width: 100%;
+            margin-top: 10px;
+        }
+
+        .add-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(245, 158, 11, 0.3);
+        }
+
+        /* Action Buttons */
+        .action-buttons {
+            display: flex;
+            gap: 15px;
+            margin-top: 30px;
+        }
+
+        .btn {
+            padding: 12px 24px;
+            border: none;
+            border-radius: 25px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 14px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue);
+            flex: 1;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: var(--light-gold);
+            border: 2px solid var(--light-gold);
+            flex: 1;
+        }
+
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        .btn-secondary:hover {
+            background: var(--light-gold);
+            color: var(--primary-blue);
+        }
+
+        /* Preview Panel */
+        .preview-panel {
+            background: rgba(255, 255, 255, 0.05);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2);
+            border-radius: 20px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .preview-header {
+            background: rgba(251, 191, 36, 0.2);
+            padding: 15px 20px;
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .preview-title {
+            color: var(--light-gold);
+            font-weight: 600;
+            font-size: 16px;
+        }
+
+        .preview-content {
+            padding: 0;
+            overflow-y: auto;
+            max-height: calc(100vh - 280px);
+            background: white;
+            color: #333;
+        }
+
+        .preview-content iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+            min-height: 600px;
+        }
+
+        /* Helper Text */
+        .helper-text {
+            font-size: 12px;
+            color: rgba(255, 255, 255, 0.6);
+            margin-top: 5px;
+            font-style: italic;
+        }
+
+        /* Success Message */
+        .success-message {
+            background: linear-gradient(135deg, #10b981, #059669);
+            color: white;
+            padding: 15px 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+            display: none;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .success-message.show {
+            display: flex;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .main-layout {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+            
+            .preview-panel {
+                order: -1;
+            }
+            
+            .preview-content {
+                max-height: 400px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px;
+            }
+            
+            .editor-panel {
+                padding: 20px;
+            }
+            
+            .action-buttons {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="container">
+            <a href="#" class="logo serif">
+                <div class="logo-icon">✍️</div>
+                Vedic Space Blog Creator - Enhanced
+            </a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-layout">
+            <!-- Editor Panel -->
+            <div class="editor-panel">
+                <h2 class="editor-title serif">Create Your Sacred Reflection</h2>
+                
+                <form id="blogForm">
+                    <!-- Basic Information -->
+                    <div class="form-group">
+                        <label class="form-label" for="title">Article Title</label>
+                        <input type="text" id="title" class="form-input" placeholder="The Sacred Sound of Om: Gateway to Inner Silence" required>
+                        <div class="helper-text">Choose a title that reflects the sacred nature of your content</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="subtitle">Article Subtitle</label>
+                        <textarea id="subtitle" class="form-textarea" placeholder="In the beginning was the Word, and the Word was Om. This primordial sound carries within it the entire universe—creation, preservation, and dissolution." required></textarea>
+                        <div class="helper-text">A brief description that appears below the title</div>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="category">Category</label>
+                        <select id="category" class="form-select" required>
+                            <option value="">Select Category</option>
+                            <option value="Mantra">Mantra</option>
+                            <option value="Breath">Breath</option>
+                            <option value="Practice">Practice</option>
+                            <option value="Everyday Dharma">Everyday Dharma</option>
+                            <option value="Reflection">Reflection</option>
+                            <option value="Meditation">Meditation</option>
+                            <option value="Sacred Arts">Sacred Arts</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="readTime">Reading Time (minutes)</label>
+                        <input type="number" id="readTime" class="form-input" placeholder="5" min="1" max="60" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="author">Author</label>
+                        <input type="text" id="author" class="form-input" placeholder="Vedic Space Team" required>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="form-group">
+                        <label class="form-label" for="content">Article Content</label>
+                        <textarea id="content" class="form-textarea content-textarea" placeholder="Write your sacred reflection here...
+
+Use **bold** for emphasis
+Use *italic* for subtle emphasis
+Use ## for main headings
+Use ### for subheadings
+
+For blockquotes, use:
+> Your quote here
+
+For lists, use:
+- First point
+- Second point
+
+To insert images: [IMAGE:1] (refers to first uploaded image)
+To insert videos: [VIDEO:1] (refers to first YouTube video)
+To insert sacred quotes: [QUOTE:1] (refers to first sacred quote)
+
+Write with reverence and depth, as befits sacred content." required></textarea>
+                        <div class="helper-text">Use Markdown formatting and special tags for media. Write with mindfulness and sacred intention.</div>
+                    </div>
+
+                    <!-- Images Section -->
+                    <div class="form-group">
+                        <label class="form-label">Images</label>
+                        <div id="imagesContainer">
+                            <!-- Dynamic image uploads will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addImageUpload()">
+                            📷 Add Image
+                        </button>
+                        <div class="helper-text">Upload images to include in your blog post. Use [IMAGE:1], [IMAGE:2], etc. in your content to place them.</div>
+                    </div>
+
+                    <!-- YouTube Videos Section -->
+                    <div class="form-group">
+                        <label class="form-label">YouTube Videos</label>
+                        <div id="videosContainer">
+                            <!-- Dynamic video inputs will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addVideoInput()">
+                            🎥 Add YouTube Video
+                        </button>
+                        <div class="helper-text">Add YouTube video URLs. Use [VIDEO:1], [VIDEO:2], etc. in your content to embed them.</div>
+                    </div>
+
+                    <!-- Sacred Quotes Section -->
+                    <div class="form-group">
+                        <label class="form-label">Sacred Quotes</label>
+                        <div id="quotesContainer">
+                            <!-- Dynamic quote inputs will be added here -->
+                        </div>
+                        <button type="button" class="add-btn" onclick="addSacredQuote()">
+                            ✨ Add Sacred Quote
+                        </button>
+                        <div class="helper-text">Add special highlighted quotes. Use [QUOTE:1], [QUOTE:2], etc. in your content to place them.</div>
+                    </div>
+
+                    <!-- Navigation -->
+                    <div class="form-group">
+                        <label class="form-label" for="previousPost">Previous Post Title (Optional)</label>
+                        <input type="text" id="previousPost" class="form-input" placeholder="The Art of Mindful Listening">
+                    </div>
+
+                    <div class="form-group">
+                        <label class="form-label" for="nextPost">Next Post Title (Optional)</label>
+                        <input type="text" id="nextPost" class="form-input" placeholder="Pranayama: The Bridge Between Body and Soul">
+                    </div>
+
+                    <!-- Action Buttons -->
+                    <div class="action-buttons">
+                        <button type="button" class="btn btn-primary" id="previewBtn">
+                            👁️ Preview Post
+                        </button>
+                        <button type="button" class="btn btn-secondary" id="downloadBtn">
+                            📥 Download HTML
+                        </button>
+                    </div>
+
+                    <div class="success-message" id="successMessage">
+                        ✅ <span>Blog post generated successfully!</span>
+                    </div>
+                </form>
+            </div>
+
+            <!-- Preview Panel -->
+            <div class="preview-panel">
+                <div class="preview-header">
+                    <span class="preview-title">Live Preview</span>
+                    <button type="button" class="btn btn-secondary" id="newTabBtn" style="padding: 8px 16px; font-size: 12px;">
+                        🔗 Open in New Tab
+                    </button>
+                </div>
+                <div class="preview-content">
+                    <iframe id="previewFrame" style="width: 100%; height: 600px; border: none;"></iframe>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Global variables
+        let currentHTML = '';
+        let imageCounter = 0;
+        let videoCounter = 0;
+        let quoteCounter = 0;
+        let uploadedImages = {};
+
+        // Initialize when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('Page loaded, initializing...');
+            
+            // Set up event listeners
+            document.getElementById('previewBtn').addEventListener('click', generatePreview);
+            document.getElementById('downloadBtn').addEventListener('click', downloadHTML);
+            document.getElementById('newTabBtn').addEventListener('click', openPreviewInNewTab);
+            
+            // Auto-preview on input changes
+            const inputs = ['title', 'subtitle', 'category', 'readTime', 'author', 'content'];
+            inputs.forEach(id => {
+                const element = document.getElementById(id);
+                if (element) {
+                    element.addEventListener('input', debouncePreview);
+                }
+            });
+
+            // Initialize with default preview
+            updatePreview('Fill in the form and click "Preview Post" to see your blog post.');
+        });
+
+        // Add image upload functionality
+        function addImageUpload() {
+            imageCounter++;
+            const container = document.getElementById('imagesContainer');
+            const imageDiv = document.createElement('div');
+            imageDiv.className = 'dynamic-section';
+            imageDiv.id = `image-${imageCounter}`;
+            
+            imageDiv.innerHTML = `
+                <div class="section-header">
+                    <span class="section-title">Image ${imageCounter}</span>
+                    <button type="button" class="remove-btn" onclick="removeSection('image-${imageCounter}')">Remove</button>
+                </div>
+                <div class="file-upload">
+                    <input type="file" class="file-upload-input" id="imageFile-${imageCounter}" accept="image/*" onchange="handleImageUpload(${imageCounter}, this)">
+                    <label for="imageFile-${imageCounter}" class="file-upload-label">
+                        📷 Click to upload image or drag & drop
+                    </label>
+                </div>
+                <div class="file-preview" id="imagePreview-${imageCounter}">
+                    <img id="imageImg-${imageCounter}" src="/placeholder.svg" alt="Preview">
+                    <div class="file-info" id="imageInfo-${imageCounter}"></div>
+                </div>
+                <div class="form-group" style="margin-top: 15px;">
+                    <label class="form-label">Image Caption (Optional)</label>
+                    <input type="text" class="form-input" id="imageCaption-${imageCounter}" placeholder="A beautiful sacred image..." onchange="debouncePreview()">
+                </div>
+                <div class="helper-text">Use [IMAGE:${imageCounter}] in your content to place this image</div>
+            `;
+            
+            container.appendChild(imageDiv);
+        }
+
+        // Add YouTube video input
+        function addVideoInput() {
+            videoCounter++;
+            const container = document.getElementById('videosContainer');
+            const videoDiv = document.createElement('div');
+            videoDiv.className = 'dynamic-section';
+            videoDiv.id = `video-${videoCounter}`;
+            
+            videoDiv.innerHTML = `
+                <div class="section-header">
+                    <span class="section-title">YouTube Video ${videoCounter}</span>
+                    <button type="button" class="remove-btn" onclick="removeSection('video-${videoCounter}')">Remove</button>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">YouTube URL</label>
+                    <input type="url" class="form-input" id="videoUrl-${videoCounter}" placeholder="https://www.youtube.com/watch?v=..." onchange="debouncePreview()">
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Video Title (Optional)</label>
+                    <input type="text" class="form-input" id="videoTitle-${videoCounter}" placeholder="Sacred Chanting Practice" onchange="debouncePreview()">
+                </div>
+                <div class="helper-text">Use [VIDEO:${videoCounter}] in your content to embed this video</div>
+            `;
+            
+            container.appendChild(videoDiv);
+        }
+
+        // Add sacred quote
+        function addSacredQuote() {
+            quoteCounter++;
+            const container = document.getElementById('quotesContainer');
+            const quoteDiv = document.createElement('div');
+            quoteDiv.className = 'dynamic-section';
+            quoteDiv.id = `quote-${quoteCounter}`;
+            
+            quoteDiv.innerHTML = `
+                <div class="section-header">
+                    <span class="section-title">Sacred Quote ${quoteCounter}</span>
+                    <button type="button" class="remove-btn" onclick="removeSection('quote-${quoteCounter}')">Remove</button>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quote Text</label>
+                    <textarea class="form-textarea" id="quoteText-${quoteCounter}" placeholder="Om is the bow, the arrow is the soul, Brahman is the target..." onchange="debouncePreview()"></textarea>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Quote Source</label>
+                    <input type="text" class="form-input" id="quoteSource-${quoteCounter}" placeholder="— Mundaka Upanishad" onchange="debouncePreview()">
+                </div>
+                <div class="helper-text">Use [QUOTE:${quoteCounter}] in your content to place this sacred quote</div>
+            `;
+            
+            container.appendChild(quoteDiv);
+        }
+
+        // Remove section
+        function removeSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.remove();
+                debouncePreview();
+            }
+        }
+
+        // Handle image upload
+        function handleImageUpload(imageId, input) {
+            const file = input.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    uploadedImages[imageId] = e.target.result;
+                    
+                    const preview = document.getElementById(`imagePreview-${imageId}`);
+                    const img = document.getElementById(`imageImg-${imageId}`);
+                    const info = document.getElementById(`imageInfo-${imageId}`);
+                    
+                    img.src = e.target.result;
+                    info.textContent = `${file.name} (${(file.size / 1024).toFixed(1)} KB)`;
+                    preview.classList.add('show');
+                    
+                    debouncePreview();
+                };
+                reader.readAsDataURL(file);
+            }
+        }
+
+        // Extract YouTube video ID
+        function getYouTubeVideoId(url) {
+            const regExp = /^.*(youtu.be\/|v\/|u\/\w\/|embed\/|watch\?v=|&v=)([^#&?]*).*/;
+            const match = url.match(regExp);
+            return (match && match[2].length === 11) ? match[2] : null;
+        }
+
+        // Debounced auto-preview
+        let previewTimeout;
+        function debouncePreview() {
+            clearTimeout(previewTimeout);
+            previewTimeout = setTimeout(() => {
+                const title = document.getElementById('title').value;
+                const content = document.getElementById('content').value;
+                if (title || content) {
+                    generatePreview();
+                }
+            }, 1000);
+        }
+
+        // Enhanced markdown to HTML converter with media support
+        function markdownToHTML(markdown) {
+            if (!markdown) return '<p>Your content will appear here...</p>';
+            
+            let html = markdown
+                // Escape HTML first
+                .replace(/&/g, '&amp;')
+                .replace(/</g, '&lt;')
+                .replace(/>/g, '&gt;');
+
+            // Process media placeholders first
+            // Images
+            html = html.replace(/\[IMAGE:(\d+)\]/g, function(match, imageId) {
+                const imageData = uploadedImages[imageId];
+                const caption = document.getElementById(`imageCaption-${imageId}`)?.value || '';
+                
+                if (imageData) {
+                    return `<div class="article-image">
+                        <img src="${imageData}" alt="${caption}" style="width: 100%; max-width: 600px; height: auto; border-radius: 15px; margin: 30px auto; display: block; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+                        ${caption ? `<p style="text-align: center; font-style: italic; color: rgba(255,255,255,0.7); margin-top: 15px; font-size: 16px;">${caption}</p>` : ''}
+                    </div>`;
+                }
+                return `<div style="padding: 20px; text-align: center; color: #999; border: 2px dashed #ccc; border-radius: 8px; margin: 20px 0;">Image ${imageId} will appear here</div>`;
+            });
+
+            // YouTube Videos
+            html = html.replace(/\[VIDEO:(\d+)\]/g, function(match, videoId) {
+                const videoUrl = document.getElementById(`videoUrl-${videoId}`)?.value || '';
+                const videoTitle = document.getElementById(`videoTitle-${videoId}`)?.value || '';
+                
+                if (videoUrl) {
+                    const youtubeId = getYouTubeVideoId(videoUrl);
+                    if (youtubeId) {
+                        return `<div class="video-container" style="margin: 40px 0;">
+                            ${videoTitle ? `<h4 style="color: var(--light-gold); text-align: center; margin-bottom: 20px; font-family: 'Playfair Display', serif;">${videoTitle}</h4>` : ''}
+                            <div style="position: relative; width: 100%; height: 0; padding-bottom: 56.25%; background: rgba(255,255,255,0.05); border-radius: 15px; overflow: hidden; box-shadow: 0 15px 40px rgba(0,0,0,0.2);">
+                                <iframe src="https://www.youtube.com/embed/${youtubeId}" 
+                                        style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none;"
+                                        allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                                        allowfullscreen></iframe>
+                            </div>
+                        </div>`;
+                    }
+                }
+                return `<div style="padding: 20px; text-align: center; color: #999; border: 2px dashed #ccc; border-radius: 8px; margin: 20px 0;">YouTube Video ${videoId} will appear here</div>`;
+            });
+
+            // Sacred Quotes
+            html = html.replace(/\[QUOTE:(\d+)\]/g, function(match, quoteId) {
+                const quoteText = document.getElementById(`quoteText-${quoteId}`)?.value || '';
+                const quoteSource = document.getElementById(`quoteSource-${quoteId}`)?.value || '';
+                
+                if (quoteText) {
+                    return `<div class="sacred-quote">
+                        <div class="sacred-quote-text serif">"${quoteText}"</div>
+                        <div class="sacred-quote-source">${quoteSource || '— Sacred Wisdom'}</div>
+                    </div>`;
+                }
+                return `<div style="padding: 20px; text-align: center; color: #999; border: 2px dashed #ccc; border-radius: 8px; margin: 20px 0;">Sacred Quote ${quoteId} will appear here</div>`;
+            });
+
+            // Continue with regular markdown processing
+            html = html
+                // Headers
+                .replace(/^### (.+)$/gm, '<h3>$1</h3>')
+                .replace(/^## (.+)$/gm, '<h2>$1</h2>')
+                .replace(/^# (.+)$/gm, '<h1>$1</h1>')
+                // Bold and italic
+                .replace(/\*\*(.+?)\*\*/g, '<strong>$1</strong>')
+                .replace(/\*(.+?)\*/g, '<em>$1</em>')
+                // Blockquotes
+                .replace(/^> (.+)$/gm, '<blockquote>$1</blockquote>')
+                // Lists
+                .replace(/^- (.+)$/gm, '<li>$1</li>')
+                // Line breaks and paragraphs
+                .replace(/\n\n/g, '</p><p>')
+                .replace(/\n/g, '<br>');
+
+            // Wrap in paragraphs if not already wrapped
+            if (!html.startsWith('<h') && !html.startsWith('<blockquote') && !html.startsWith('<li') && !html.startsWith('<div')) {
+                html = '<p>' + html + '</p>';
+            }
+
+            // Clean up list items
+            html = html.replace(/(<li>.*?<\/li>)/gs, function(match) {
+                return '<ul>' + match + '</ul>';
+            });
+
+            // Clean up empty paragraphs
+            html = html.replace(/<p><\/p>/g, '');
+            html = html.replace(/<p>(<[h|u|b|d])/g, '$1');
+            html = html.replace(/(<\/[h|u|b|d][^>]*>)<\/p>/g, '$1');
+
+            return html;
+        }
+
+        function generatePreview() {
+            console.log('Generating preview...');
+            
+            try {
+                const formData = {
+                    title: document.getElementById('title').value || 'Your Blog Post Title',
+                    subtitle: document.getElementById('subtitle').value || 'Your blog post subtitle will appear here.',
+                    category: document.getElementById('category').value || 'Reflection',
+                    readTime: document.getElementById('readTime').value || '5',
+                    author: document.getElementById('author').value || 'Vedic Space Team',
+                    content: document.getElementById('content').value || 'Your blog content will appear here...',
+                    previousPost: document.getElementById('previousPost').value,
+                    nextPost: document.getElementById('nextPost').value
+                };
+
+                currentHTML = generateBlogHTML(formData);
+                updatePreview(currentHTML);
+                showSuccess('Preview generated successfully!');
+                
+            } catch (error) {
+                console.error('Error generating preview:', error);
+                updatePreview('<div style="padding: 40px; text-align: center; color: red;">Error generating preview. Please check your input.</div>');
+            }
+        }
+
+        function updatePreview(html) {
+            const previewFrame = document.getElementById('previewFrame');
+            if (previewFrame) {
+                previewFrame.srcdoc = html;
+            }
+        }
+
+        function generateBlogHTML(data) {
+            const currentDate = new Date().toLocaleDateString('en-US', { 
+                year: 'numeric', 
+                month: 'long', 
+                day: 'numeric' 
+            });
+
+            const contentHTML = markdownToHTML(data.content);
+            
+            const navigationHTML = (data.previousPost || data.nextPost) ? `
+                <div class="article-nav">
+                    ${data.previousPost ? `
+                        <a href="/previous-post.html" class="nav-card">
+                            <div class="nav-label">← Previous</div>
+                            <div class="nav-title serif">${data.previousPost}</div>
+                        </a>
+                    ` : '<div></div>'}
+                    ${data.nextPost ? `
+                        <a href="/next-post.html" class="nav-card">
+                            <div class="nav-label">Next →</div>
+                            <div class="nav-title serif">${data.nextPost}</div>
+                        </a>
+                    ` : '<div></div>'}
+                </div>
+            ` : '';
+
+            return `<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>${data.title} | Vedic Space</title>
+    <meta name="description" content="${data.subtitle}">
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-blue: #1e3a8a; --deep-blue: #1e40af; --light-blue: #3b82f6;
+            --accent-gold: #f59e0b; --light-gold: #fbbf24; --white: #ffffff;
+        }
+        body {
+            font-family: 'Inter', sans-serif; line-height: 1.7; color: var(--white);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
+            min-height: 100vh;
+        }
+        .serif { font-family: 'Playfair Display', serif; }
+        .container { max-width: 800px; margin: 0 auto; padding: 0 20px; }
+        .wide-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        .header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(30, 58, 138, 0.95); backdrop-filter: blur(10px);
+            border-bottom: 1px solid rgba(251, 191, 36, 0.2); z-index: 1000; padding: 15px 0;
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-size: 24px; font-weight: 600; }
+        .logo img { width: 40px; height: 40px; }
+        .nav-links { display: flex; gap: 30px; list-style: none; }
+        .nav-links a { color: var(--white); text-decoration: none; font-weight: 500; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em; }
+        .cta-btn {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue); padding: 12px 24px; border-radius: 25px; text-decoration: none;
+            font-weight: 600; font-size: 14px; text-transform: uppercase; letter-spacing: 0.1em;
+        }
+        
+        .article-header { padding: 120px 0 60px; text-align: center; position: relative; overflow: hidden; }
+        .article-header::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; bottom: 0;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><circle cx="50" cy="50" r="40" fill="none" stroke="rgba(251,191,36,0.1)" stroke-width="0.5"/></svg>') repeat;
+            opacity: 0.3;
+        }
+        .article-header-content { position: relative; z-index: 1; }
+        .article-meta {
+            display: flex; align-items: center; justify-content: center; gap: 20px;
+            margin-bottom: 30px; font-size: 14px; color: var(--light-gold); flex-wrap: wrap;
+        }
+        .article-category {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue); padding: 6px 16px; border-radius: 20px;
+            font-size: 12px; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 600;
+        }
+        .article-title {
+            font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.2; color: var(--white);
+            margin-bottom: 30px; max-width: 700px; margin-left: auto; margin-right: auto; font-weight: 300;
+        }
+        .article-subtitle {
+            font-size: 20px; color: rgba(255, 255, 255, 0.8);
+            max-width: 600px; margin: 0 auto 40px; line-height: 1.6;
+        }
+        .divider {
+            width: 80px; height: 3px;
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            margin: 0 auto; border-radius: 2px;
+        }
+        
+        .article-content { padding: 80px 0; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px); }
+        .content-wrapper {
+            background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 20px;
+            padding: 60px; margin-bottom: 60px;
+        }
+        .article-content h2 {
+            font-size: 32px; color: var(--light-gold); margin: 40px 0 20px;
+            font-family: 'Playfair Display', serif; font-weight: 600;
+        }
+        .article-content h3 {
+            font-size: 24px; color: var(--light-gold); margin: 30px 0 15px;
+            font-family: 'Playfair Display', serif; font-weight: 600;
+        }
+        .article-content p {
+            margin-bottom: 25px; color: rgba(255, 255, 255, 0.9);
+            font-size: 18px; line-height: 1.8;
+        }
+        .article-content blockquote {
+            border-left: 4px solid var(--light-gold); padding: 30px; margin: 40px 0;
+            font-style: italic; font-size: 20px; color: var(--light-gold);
+            background: rgba(251, 191, 36, 0.1); border-radius: 0 15px 15px 0; backdrop-filter: blur(10px);
+        }
+        .article-content ul, .article-content ol { margin: 25px 0; padding-left: 30px; }
+        .article-content li { margin-bottom: 10px; color: rgba(255, 255, 255, 0.9); font-size: 18px; }
+        
+        .sacred-quote {
+            background: linear-gradient(135deg, var(--accent-gold), var(--light-gold));
+            color: var(--primary-blue); padding: 40px; border-radius: 20px; text-align: center;
+            margin: 50px 0; box-shadow: 0 25px 60px rgba(0, 0, 0, 0.2);
+        }
+        .sacred-quote-text {
+            font-size: 24px; font-style: italic; margin-bottom: 20px;
+            font-family: 'Playfair Display', serif; line-height: 1.4;
+        }
+        .sacred-quote-source {
+            font-size: 14px; opacity: 0.8; text-transform: uppercase;
+            letter-spacing: 0.1em; font-weight: 600;
+        }
+        
+        .article-nav { display: flex; justify-content: space-between; gap: 30px; margin-top: 60px; }
+        .nav-card {
+            flex: 1; background: rgba(255, 255, 255, 0.05); backdrop-filter: blur(10px);
+            border: 1px solid rgba(251, 191, 36, 0.2); border-radius: 15px; padding: 25px;
+            text-decoration: none; color: inherit; transition: all 0.3s ease;
+        }
+        .nav-label {
+            font-size: 14px; color: var(--light-gold); text-transform: uppercase;
+            letter-spacing: 0.1em; margin-bottom: 10px; font-weight: 600;
+        }
+        .nav-title { color: var(--white); font-weight: 600; font-size: 16px; }
+        
+        .footer {
+            background: rgba(30, 58, 138, 0.8); backdrop-filter: blur(10px);
+            color: var(--white); padding: 60px 0 40px;
+            border-top: 1px solid rgba(251, 191, 36, 0.2);
+        }
+        .footer-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 40px; margin-bottom: 40px; }
+        .footer-title { font-size: 20px; margin-bottom: 20px; font-weight: 600; color: var(--light-gold); }
+        .footer-link {
+            color: rgba(255, 255, 255, 0.8); text-decoration: none; display: block;
+            margin-bottom: 10px; font-size: 14px;
+        }
+        .footer-bottom {
+            border-top: 1px solid rgba(255, 255, 255, 0.2); padding-top: 30px;
+            text-align: center; color: rgba(255, 255, 255, 0.6);
+        }
+        .footer-logo { display: flex; align-items: center; gap: 15px; margin-bottom: 20px; }
+        .footer-logo img { width: 30px; height: 30px; }
+        
+        @media (max-width: 767px) {
+            .container, .wide-container { padding: 0 15px; }
+            .content-wrapper { padding: 40px 25px; }
+            .article-nav { flex-direction: column; }
+            .article-meta { flex-direction: column; gap: 10px; }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="header">
+        <div class="wide-container">
+            <nav class="nav">
+                <a href="/" class="logo serif">
+                    <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vedic%20Space%20-%20old%20lotus%20nada%20nirvana-rlImW4sxJh6tvJRcA3ltTrrQjtmlFm.png" alt="Vedic Space">
+                    Vedic Space
+                </a>
+                <ul class="nav-links">
+                    <li><a href="/">Home</a></li>
+                    <li><a href="/categories.html">Categories</a></li>
+                    <li><a href="/archive.html">Archive</a></li>
+                    <li><a href="https://vedicspace.in">Main Site</a></li>
+                </ul>
+                <a href="https://vishnu.vedicspace.in" class="cta-btn">Start Sādhana</a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="article-header">
+        <div class="container">
+            <div class="article-header-content">
+                <div class="article-meta">
+                    <span class="article-category">${data.category}</span>
+                    <span>${currentDate}</span>
+                    <span>${data.readTime} min read</span>
+                </div>
+                <h1 class="article-title serif">${data.title}</h1>
+                <p class="article-subtitle">${data.subtitle}</p>
+                <div class="divider"></div>
+            </div>
+        </div>
+    </section>
+
+    <section class="article-content">
+        <div class="container">
+            <div class="content-wrapper">
+                ${contentHTML}
+            </div>
+            ${navigationHTML}
+        </div>
+    </section>
+
+    <footer class="footer">
+        <div class="wide-container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">
+                        <img src="https://hebbkx1anhila5yf.public.blob.vercel-storage.com/vedic%20Space%20-%20old%20lotus%20nada%20nirvana-rlImW4sxJh6tvJRcA3ltTrrQjtmlFm.png" alt="Vedic Space">
+                        <span class="footer-title serif">Vedic Space</span>
+                    </div>
+                    <p style="color: rgba(255, 255, 255, 0.8); line-height: 1.6;">
+                        A sacred digital sanctuary for chanting, breath, and quiet reflection. 
+                        Rooted in the Vedic tradition.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="footer-title serif">Explore</h4>
+                    <a href="/" class="footer-link">Latest Posts</a>
+                    <a href="/categories.html" class="footer-link">Categories</a>
+                    <a href="/archive.html" class="footer-link">Archive</a>
+                    <a href="#" class="footer-link">Newsletter</a>
+                </div>
+                <div>
+                    <h4 class="footer-title serif">Topics</h4>
+                    <a href="#" class="footer-link">Mantra</a>
+                    <a href="#" class="footer-link">Breath Work</a>
+                    <a href="#" class="footer-link">Daily Practice</a>
+                    <a href="#" class="footer-link">Reflection</a>
+                </div>
+                <div>
+                    <h4 class="footer-title serif">Connect</h4>
+                    <a href="https://vedicspace.in" class="footer-link">Main Site</a>
+                    <a href="https://vishnu.vedicspace.in" class="footer-link">VSS Sadhana</a>
+                    <a href="https://arts.vedicspace.in" class="footer-link">Sacred Arts</a>
+                    <a href="#" class="footer-link">Community</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>© 2024 Vedic Space. All rights reserved. A sacred space for authentic practice.</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>`;
+        }
+
+        function downloadHTML() {
+            console.log('Downloading HTML...');
+            
+            try {
+                if (!currentHTML) {
+                    generatePreview();
+                }
+
+                const title = document.getElementById('title').value || 'blog-post';
+                const filename = title.toLowerCase()
+                    .replace(/[^a-z0-9\s]/g, '')
+                    .replace(/\s+/g, '-')
+                    .substring(0, 50) + '.html';
+
+                const blob = new Blob([currentHTML], { type: 'text/html;charset=utf-8' });
+                const url = URL.createObjectURL(blob);
+                
+                const a = document.createElement('a');
+                a.href = url;
+                a.download = filename;
+                a.style.display = 'none';
+                
+                document.body.appendChild(a);
+                a.click();
+                document.body.removeChild(a);
+                
+                URL.revokeObjectURL(url);
+                
+                showSuccess('HTML file downloaded successfully!');
+                
+            } catch (error) {
+                console.error('Error downloading HTML:', error);
+                showSuccess('Error downloading file. Please try again.');
+            }
+        }
+
+        function openPreviewInNewTab() {
+            console.log('Opening in new tab...');
+            
+            try {
+                if (!currentHTML) {
+                    generatePreview();
+                }
+                
+                const newWindow = window.open('', '_blank');
+                if (newWindow) {
+                    newWindow.document.write(currentHTML);
+                    newWindow.document.close();
+                } else {
+                    alert('Please allow popups to open preview in new tab');
+                }
+                
+            } catch (error) {
+                console.error('Error opening new tab:', error);
+            }
+        }
+
+        function showSuccess(message) {
+            const successMessage = document.getElementById('successMessage');
+            const span = successMessage.querySelector('span');
+            if (span) {
+                span.textContent = message;
+            }
+            successMessage.classList.add('show');
+            setTimeout(() => {
+                successMessage.classList.remove('show');
+            }, 3000);
+        }
+    </script>
+</body>
+</html>
