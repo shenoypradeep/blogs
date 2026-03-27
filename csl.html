@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Vedic Space Blog</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: linear-gradient(135deg, #1e3a8a, #1e40af);
+    color: white;
+}
+
+.container {
+    max-width: 1100px;
+    margin: auto;
+    padding: 20px;
+}
+
+.title {
+    text-align: center;
+    margin: 80px 0 30px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* CAROUSEL */
+.carousel-container {
+    position: relative;
+    overflow: hidden;
+    border-radius: 20px;
+    box-shadow: 0 25px 60px rgba(0,0,0,0.5);
+}
+
+.carousel-track {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slide {
+    min-width: 100%;
+    position: relative;
+}
+
+.slide img {
+    width: 100%;
+    aspect-ratio: 16/9;
+    object-fit: cover;
+}
+
+/* NAV BUTTONS (BOTTOM THUMB ZONE) */
+.nav-btn {
+    position: absolute;
+    bottom: 15px;
+    font-size: 22px;
+    border: none;
+    background: rgba(0,0,0,0.5);
+    color: white;
+    padding: 14px 18px;
+    border-radius: 50%;
+    cursor: pointer;
+}
+
+.left { left: 15px; }
+.right { right: 15px; }
+
+.nav-btn:hover {
+    background: rgba(251,191,36,0.9);
+    color: #1e3a8a;
+}
+
+/* TOP CONTROLS */
+.controls {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    display: flex;
+    gap: 10px;
+}
+
+.controls button {
+    background: rgba(0,0,0,0.5);
+    border: none;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 8px;
+}
+
+/* SWIPE HINT */
+.swipe-hint {
+    position: absolute;
+    bottom: 70px;
+    width: 100%;
+    text-align: center;
+    font-size: 14px;
+    opacity: 0.7;
+    animation: fadeOut 4s forwards;
+}
+
+@keyframes fadeOut {
+    0% {opacity: 0.7;}
+    80% {opacity: 0.7;}
+    100% {opacity: 0;}
+}
+
+/* CONTENT */
+.content {
+    margin-top: 50px;
+    background: rgba(255,255,255,0.05);
+    padding: 40px;
+    border-radius: 20px;
+}
+
+.content h2 {
+    font-family: 'Playfair Display', serif;
+    color: #fbbf24;
+}
+
+.content p {
+    line-height: 1.8;
+}
+
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+<h1 class="title">Sacred Visual Reflection</h1>
+
+<!-- CAROUSEL -->
+<div class="carousel-container" id="carousel">
+
+    <div class="carousel-track" id="track">
+        <div class="slide"><img src="https://picsum.photos/id/1015/1200/700"></div>
+        <div class="slide"><img src="https://picsum.photos/id/1016/1200/700"></div>
+        <div class="slide"><img src="https://picsum.photos/id/1018/1200/700"></div>
+    </div>
+
+    <button class="nav-btn left" onclick="prevSlide()">❮</button>
+    <button class="nav-btn right" onclick="nextSlide()">❯</button>
+
+    <div class="controls">
+        <button onclick="toggleSlideshow()">⏵</button>
+        <button onclick="toggleFullscreen()">⛶</button>
+    </div>
+
+    <div class="swipe-hint">← swipe →</div>
+
+</div>
+
+<!-- CONTENT -->
+<div class="content">
+    <h2>Your Write-up</h2>
+    <p>
+        The images above are not just visuals — they are entry points into stillness.
+        Let each swipe become a breath, each pause a moment of awareness.
+    </p>
+</div>
+
+</div>
+
+<script>
+const track = document.getElementById("track");
+const slides = document.querySelectorAll(".slide");
+
+let index = 0;
+let startX = 0;
+let currentTranslate = 0;
+let prevTranslate = 0;
+let isDragging = false;
+let animationID;
+let interval = null;
+
+function setPosition() {
+    track.style.transform = `translateX(${currentTranslate}px)`;
+}
+
+function animation() {
+    setPosition();
+    if (isDragging) requestAnimationFrame(animation);
+}
+
+function nextSlide() {
+    index = Math.min(index + 1, slides.length - 1);
+    updateSlide();
+}
+
+function prevSlide() {
+    index = Math.max(index - 1, 0);
+    updateSlide();
+}
+
+function updateSlide() {
+    currentTranslate = -index * window.innerWidth * 0.9;
+    prevTranslate = currentTranslate;
+    track.style.transition = "transform 0.6s ease";
+    setPosition();
+}
+
+/* TOUCH EVENTS */
+track.addEventListener("touchstart", touchStart);
+track.addEventListener("touchmove", touchMove);
+track.addEventListener("touchend", touchEnd);
+
+function touchStart(e) {
+    startX = e.touches[0].clientX;
+    isDragging = true;
+    track.style.transition = "none";
+
+    if(interval) clearInterval(interval);
+
+    animationID = requestAnimationFrame(animation);
+}
+
+function touchMove(e) {
+    if (!isDragging) return;
+    const currentX = e.touches[0].clientX;
+    const diff = currentX - startX;
+    currentTranslate = prevTranslate + diff;
+}
+
+function touchEnd(e) {
+    isDragging = false;
+    cancelAnimationFrame(animationID);
+
+    const movedBy = currentTranslate - prevTranslate;
+    const threshold = window.innerWidth * 0.15;
+
+    if (movedBy < -threshold && index < slides.length - 1) index++;
+    if (movedBy > threshold && index > 0) index--;
+
+    updateSlide();
+}
+
+/* SLIDESHOW (SLOW + CALM) */
+function toggleSlideshow(){
+    if(interval){
+        clearInterval(interval);
+        interval = null;
+    } else {
+        interval = setInterval(() => {
+            if(index < slides.length - 1){
+                index++;
+            } else {
+                index = 0;
+            }
+            updateSlide();
+        }, 6000);
+    }
+}
+
+/* FULLSCREEN */
+function toggleFullscreen(){
+    const el = document.getElementById("carousel");
+    if(!document.fullscreenElement){
+        el.requestFullscreen();
+    } else {
+        document.exitFullscreen();
+    }
+}
+</script>
+
+</body>
+</html>
