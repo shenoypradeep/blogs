@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en" style="scroll-behavior: smooth;">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Ultimate Physiology of Chanting | Vedic Space</title>
+    <meta name="description" content="A profound deep-dive into the neuroscience of Vishnu Sahasranama chanting. Discover how exhalations, diaphragmatic rhythm, and vagus nerve stimulation actively rewrite your biology.">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+
+    <style>
+        /* Base Reset & Variables */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary-blue: #0f172a; --deep-blue: #020617; --light-blue: #3b82f6;
+            --accent-gold: #f59e0b; --light-gold: #fbbf24; --white: #f8fafc;
+            --text-gray: #cbd5e1; --border-color: rgba(251, 191, 36, 0.25);
+        }
+        body {
+            font-family: 'Inter', sans-serif; line-height: 1.8; color: var(--white);
+            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+            min-height: 100vh;
+        }
+        .serif { font-family: 'Playfair Display', serif; }
+        
+        /* Layout */
+        .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
+        .wide-container { max-width: 1200px; margin: 0 auto; padding: 0 20px; }
+        
+        /* Header & Nav */
+        .header {
+            position: fixed; top: 0; width: 100%;
+            background: rgba(2, 6, 23, 0.95); backdrop-filter: blur(12px);
+            border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0;
+        }
+        .nav { display: flex; justify-content: space-between; align-items: center; }
+        .logo { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-size: 24px; font-weight: 600; letter-spacing: 0.5px; }
+        .logo img { width: 40px; height: 40px; object-fit: contain; }
+        
+        /* Hero Section */
+        .article-header { padding: 150px 0 70px; text-align: center; position: relative; }
+        .article-meta { color: var(--light-gold); font-size: 14px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; }
+        .article-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.15; margin-bottom: 30px; font-weight: 400; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+        .article-subtitle { font-size: 22px; color: var(--text-gray); max-width: 800px; margin: 0 auto 40px; line-height: 1.6; }
+        .divider { width: 100px; height: 3px; background: linear-gradient(135deg, var(--accent-gold), var(--light-gold)); margin: 0 auto; border-radius: 2px; box-shadow: 0 0 15px rgba(245,158,11,0.5); }
+        
+        /* Content Styling */
+        .article-content { padding: 40px 0 80px; }
+        .content-wrapper { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 24px; padding: 70px; margin-bottom: 60px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
+        
+        .article-content h2 { font-size: 36px; color: var(--light-gold); margin: 70px 0 35px; font-weight: 600; border-bottom: 1px solid rgba(251,191,36,0.2); padding-bottom: 15px; }
+        .article-content h3 { font-size: 24px; color: var(--white); margin: 45px 0 20px; font-weight: 600; }
+        .article-content p { margin-bottom: 28px; font-size: 19px; color: rgba(255, 255, 255, 0.95); }
+        .article-content ul { margin: 30px 0 30px 25px; }
+        .article-content li { margin-bottom: 20px; font-size: 18px; color: rgba(255, 255, 255, 0.95); line-height: 1.7; }
+        .article-content strong { color: var(--white); font-weight: 700; background: rgba(251,191,36,0.1); padding: 0 4px; border-radius: 4px; }
+        .article-content em { color: var(--light-gold); font-style: normal; font-weight: 500; }
+        
+        /* Terminology Callout */
+        .term-box { display: inline-block; background: rgba(59, 130, 246, 0.15); border: 1px solid var(--light-blue); color: var(--white); padding: 2px 8px; border-radius: 6px; font-size: 16px; vertical-align: middle; margin: 0 4px; }
+
+        /* Links */
+        .research-link { color: var(--light-blue); text-decoration: none; font-weight: 600; border-bottom: 1px dotted var(--light-blue); transition: color 0.2s, border-color 0.2s; }
+        .research-link:hover { color: var(--light-gold); border-bottom: 1px solid var(--light-gold); }
+        
+        /* Inline SVG Diagrams */
+        .diagram-box { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px 30px; margin: 50px 0; text-align: center; position: relative; overflow: hidden; }
+        .diagram-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--light-gold), transparent); opacity: 0.5; }
+        .diagram-caption { font-size: 16px; color: var(--text-gray); margin-top: 30px; font-style: italic; max-width: 650px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .svg-canvas { max-width: 100%; height: auto; drop-shadow: 0 10px 20px rgba(0,0,0,0.6); }
+
+        /* Blockquotes */
+        blockquote { border-left: 4px solid var(--accent-gold); margin: 60px 0; padding: 40px 50px; font-size: 26px; color: var(--white); background: linear-gradient(90deg, rgba(251, 191, 36, 0.08) 0%, transparent 100%); border-radius: 0 20px 20px 0; font-style: italic; line-height: 1.5; }
+        
+        /* Reference List */
+        .reference-section { margin-top: 80px; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .reference-list { list-style: none; margin: 0; padding: 0; }
+        .reference-list li { font-size: 15px; margin-bottom: 16px; color: var(--text-gray); }
+        .reference-list a { color: var(--light-blue); text-decoration: none; }
+        .reference-list a:hover { text-decoration: underline; color: var(--light-gold); }
+
+        @media (max-width: 768px) {
+            .content-wrapper { padding: 40px 25px; }
+            .article-title { font-size: 2.5rem; }
+            blockquote { padding: 30px; font-size: 20px; }
+        }
+    </style>
+</head>
+<body>
+
+    <header class="header">
+        <div class="wide-container">
+            <nav class="nav">
+                <a href="/" class="logo serif">
+                    <img src="./assets/logo.webp" alt="Vedic Space">
+                    Vedic Space
+                </a>
+            </nav>
+        </div>
+    </header>
+
+    <section class="article-header">
+        <div class="container">
+            <div class="article-meta">Deep Dive • Medical Neuroscience & Sadhana • 20 Min Read</div>
+            <h1 class="article-title serif">The Ultimate Physiology of Chanting</h1>
+            <p class="article-subtitle">
+                Moving from spiritual theory to hard clinical science. A masterclass on how the metric precision of Vishnu Sahasranama actively rewrites your biology—from heart rate variability to cellular inflammation.
+            </p>
+            <div class="divider"></div>
+        </div>
+    </section>
+
+    <section class="article-content">
+        <div class="container">
+            <div class="content-wrapper">
+                
+                <p>
+                    For millennia, the <em>Vishnu Sahasranama Stotram</em> (VSS) has been recited as an act of supreme devotion. But to a modern neuroscientist, the chanting of these 1,000 names is something far more mechanical: it is a highly structured, self-administered intervention for the human autonomic nervous system.
+                </p>
+                <p>
+                    Whether you are a layperson seeking stress relief or a seasoned practitioner wanting to understand the mechanics of your <em>sadhana</em>, clarity is power. By manipulating our breath rate, engaging our core respiratory muscles, and vibrating our cranial nerves, chanting engineers states of profound physiological resilience. Here is the deep dive into the three biological pillars of chanting.
+                </p>
+
+                <h2>1. The Neurological Brake: The Long Exhalation</h2>
+                <p>
+                    The structural rhythm of chanting dictates your breath. To complete a <em>shloka</em> (verse), you must take a brief, efficient inhalation, followed by a prolonged, sustained exhalation. This uneven ratio is not accidental; it is a profound biological trigger that capitalizes on a mechanism called <strong>Respiratory Sinus Arrhythmia (RSA)</strong>.
+                </p>
+
+                <p>
+                    In simplest terms: your heart rate is literally chained to your lungs. When you inhale, your sympathetic nervous system <span class="term-box">Fight or Flight</span> engages, slightly accelerating the heart to circulate oxygen. When you exhale, your parasympathetic nervous system <span class="term-box">Rest & Digest</span> takes over, releasing acetylcholine to physically slow the heart down.
+                </p>
+
+                <div class="diagram-box">
+                    <svg class="svg-canvas" viewBox="0 0 700 250" xmlns="http://www.w3.org/2000/svg">
+                        <defs>
+                            <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
+                                <stop offset="0%" stop-color="#f59e0b" />
+                                <stop offset="25%" stop-color="#3b82f6" />
+                                <stop offset="100%" stop-color="#3b82f6" />
+                            </linearGradient>
+                        </defs>
+                        <line x1="50" y1="180" x2="650" y2="180" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
+                        <text x="35" y="185" fill="#cbd5e1" font-family="Inter" font-size="14">Time</text>
+                        
+                        <path d="M 100 180 C 130 50, 160 50, 200 180 C 350 230, 500 230, 600 180" fill="none" stroke="url(#waveGrad)" stroke-width="6" stroke-linecap="round"/>
+                        
+                        <line x1="150" y1="50" x2="150" y2="180" stroke="#f59e0b" stroke-dasharray="5,5" stroke-width="2"/>
+                        <text x="150" y="35" fill="#f59e0b" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Peak Inhale (Heart Rate Max)</text>
+                        
+                        <text x="400" y="245" fill="#3b82f6" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Extended Chanted Exhale (Heart Rate Minimized)</text>
+                        
+                        <rect x="250" y="80" width="220" height="40" rx="8" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="1"/>
+                        <text x="360" y="105" fill="#fff" font-family="Inter" font-size="13" text-anchor="middle">Vagus Nerve Secretes Acetylcholine</text>
+                    </svg>
+                    <div class="diagram-caption">Respiratory Sinus Arrhythmia (RSA): By artificially prolonging the exhalation phase through chanting, we trap the nervous system in a prolonged state of parasympathetic deceleration.</div>
+                </div>
+
+                <h3>The Clinical Deep Dive</h3>
+                <ul>
+                    <li><strong>Maximizing Heart Rate Variability (HRV):</strong> A seminal paper in the <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6037091/" target="_blank" class="research-link">National Library of Medicine (Gerritsen & Band)</a> introduces the "Respiratory Vagal Stimulation Model." It proves that slow breathing (around 6 breaths per minute) with prolonged exhales maximizes HRV. <em>HRV is a critical medical metric.</em> A high HRV means your heart is highly adaptable to stress, indicating robust emotional resilience and improved cognitive decision-making.</li>
+                    <li><strong>Vasodilation and Blood Pressure:</strong> According to <a href="https://www.health.harvard.edu/preventive-care/breathing-exercises-to-lower-your-blood-pressure" target="_blank" class="research-link">Harvard Medical School</a>, as you prolong an exhale, chest cavity pressure rises. To compensate, the autonomic nervous system forces blood vessels to dilate (widen) and lowers the heart rate. A sustained chanting practice can drop systolic blood pressure by up to 10 points.</li>
+                    <li><strong>The Safety Signal:</strong> The <a href="https://www.artofliving.org/us-en/blog/stress/relief/benefits-of-a-long-exhale-for-stress-relief" target="_blank" class="research-link">Art of Living Foundation</a> notes that a long exhale acts as a neurological "brake pedal." It sends an immediate, physical signal of safety to the brainstem, overriding acute anxiety and panic loops in real-time.</li>
+                </ul>
+
+                <h2>2. Diaphragmatic Breathing: The Core Engine</h2>
+                <p>
+                    When we are stressed, we breathe shallowly into our upper chest. But you cannot sustain a 1,000-name chant using chest breathing; you will simply run out of air. Chanting mechanically forces the practitioner into deep, <strong>Diaphragmatic Breathing</strong>. 
+                </p>
+                <p>
+                    The diaphragm is a massive, parachute-shaped muscle sitting at the base of your lungs. When you inhale properly, it flexes downward, creating a vacuum that pulls air deep into the lung bases while pushing your stomach out. As you chant, the diaphragm slowly recoils upward, providing a steady, controlled stream of pressurized air to vibrate the vocal cords.
+                </p>
+
+                <div class="diagram-box">
+                    <svg class="svg-canvas" viewBox="0 0 600 320" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M 250 60 Q 180 60, 180 200 Q 180 270, 250 250 Q 310 200, 310 120 Z" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="2"/>
+                        <path d="M 350 60 Q 420 60, 420 200 Q 420 270, 350 250 Q 290 200, 290 120 Z" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="2"/>
+                        
+                        <rect x="285" y="10" width="30" height="70" fill="none" stroke="#fff" stroke-width="3" rx="5"/>
+                        
+                        <path d="M 160 260 Q 300 320, 440 260" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8,6"/>
+                        <text x="300" y="315" fill="#f59e0b" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Diaphragm Flexes Downward (Inhale)</text>
+                        
+                        <path d="M 170 230 Q 300 160, 430 230" fill="none" stroke="#fff" stroke-width="5"/>
+                        <text x="300" y="185" fill="#fff" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle">Diaphragm Recoils Upward (Chanting Exhale)</text>
+                        
+                        <path d="M 120 180 Q 90 200, 120 220" fill="none" stroke="#10b981" stroke-width="3" marker-end="url(#arrow)"/>
+                        <text x="100" y="170" fill="#10b981" font-family="Inter" font-size="12" text-anchor="middle">Maximized</text>
+                        <text x="100" y="185" fill="#10b981" font-family="Inter" font-size="12" text-anchor="middle">O2 / CO2</text>
+                        <text x="100" y="200" fill="#10b981" font-family="Inter" font-size="12" text-anchor="middle">Exchange</text>
+                    </svg>
+                    <div class="diagram-caption">The Diaphragmatic Engine: Drawing air deeply into the lung bases allows for maximum oxygen-to-carbon-dioxide exchange, requiring less overall work from the heart.</div>
+                </div>
+
+                <h3>The Clinical Deep Dive</h3>
+                <ul>
+                    <li><strong>Crushing Cortisol:</strong> Cortisol <span class="term-box">The Stress Hormone</span> is produced by the adrenal glands during times of panic, causing weight gain, brain fog, and anxiety. A rigorous 8-week controlled study published in <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00874/full" target="_blank" class="research-link">Frontiers in Psychology (Ma et al.)</a> proved that diaphragmatic breathing causes a massive, measurable drop in salivary cortisol, directly leading to drastically improved sustained cognitive attention.</li>
+                    <li><strong>Rescuing the Immune System:</strong> When you are stressed, your sympathetic nervous system pumps out epinephrine, which actively suppresses your innate immune response. By using belly breathing to force the body into parasympathetic dominance, you stop this suppression. The body can freely produce anti-inflammatory cytokines (like IL-10) rather than pro-inflammatory ones.</li>
+                    <li><strong>Altering Pain Perception:</strong> <a href="https://www.hopkinsmedicine.org/all-childrens-hospital/services/anesthesiology/pain-management/complimentary-pain-therapies/diaphragmatic-breathing" target="_blank" class="research-link">Johns Hopkins Medicine</a> prescribes deep belly breathing as a frontline complementary pain therapy. Because the diaphragm is intimately connected to the vagus nerve, flexing it relaxes global muscle tension and actually alters the neurochemistry of how the brain perceives physical pain.</li>
+                </ul>
+
+                <h2>3. The Vagus Nerve: Erasing Cellular Inflammation</h2>
+                <p>
+                    If the breath is the engine, the <strong>Vagus Nerve (Cranial Nerve X)</strong> is the wiring. It is the longest cranial nerve in the body, wandering from the brainstem down through the throat, into the heart, and wrapping heavily around the digestive tract and spleen. 
+                </p>
+                <p>
+                    Crucially, the vagus nerve has branches (the recurrent laryngeal nerves) that directly innervate your vocal cords.
+                </p>
+
+                <div class="diagram-box">
+                    <svg class="svg-canvas" viewBox="0 0 600 450" xmlns="http://www.w3.org/2000/svg">
+                        <rect x="250" y="20" width="100" height="50" rx="12" fill="rgba(251, 191, 36, 0.15)" stroke="#f59e0b" stroke-width="3"/>
+                        <text x="300" y="50" fill="#fff" font-family="Inter" font-size="16" font-weight="700" text-anchor="middle">Brainstem</text>
+
+                        <path d="M 300 70 L 300 380" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+
+                        <path d="M 300 140 L 180 140" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5,5"/>
+                        <circle cx="150" cy="140" r="30" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="3"/>
+                        <text x="150" y="145" fill="#fff" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle">Vocal Cords</text>
+                        <path d="M 100 120 Q 80 140, 100 160" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                        <path d="M 85 110 Q 55 140, 85 170" fill="none" stroke="#3b82f6" stroke-width="3"/>
+                        <text x="70" y="195" fill="#3b82f6" font-family="Inter" font-size="12" font-weight="600" text-anchor="middle">Acoustic Massage</text>
+
+                        <path d="M 300 230 L 400 230" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5,5"/>
+                        <path d="M 430 240 Q 400 200, 390 240 Q 370 280, 430 280 Q 460 280, 460 240 Z" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="3"/>
+                        <text x="425" y="300" fill="#ef4444" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle">Heart (Pacing)</text>
+
+                        <path d="M 300 340 L 180 340" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5,5"/>
+                        <rect x="70" y="320" width="110" height="40" rx="20" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="3"/>
+                        <text x="125" y="345" fill="#10b981" font-family="Inter" font-size="14" font-weight="700" text-anchor="middle">Spleen / Gut</text>
+                        
+                        <rect x="50" y="375" width="200" height="60" rx="8" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="1"/>
+                        <text x="150" y="395" fill="#fff" font-family="Inter" font-size="12" text-anchor="middle">Releases Acetylcholine.</text>
+                        <text x="150" y="415" fill="#fff" font-family="Inter" font-size="12" text-anchor="middle">Shuts down Macrophages.</text>
+                    </svg>
+                    <div class="diagram-caption">The Cholinergic Anti-Inflammatory Pathway: The physical vibration of the vocal cords during chanting sends electrical impulses up to the brainstem, which then routes anti-inflammatory commands down to the spleen.</div>
+                </div>
+
+                <h3>The Clinical Deep Dive</h3>
+                <ul>
+                    <li><strong>The Acoustic Massage:</strong> When you vocalize highly structured, resonant Sanskrit syllables, you create a deep physical humming in the throat. This acts as a literal acoustic massage for the vagal nerve endings. Functional MRI (fMRI) studies show that this physical vibration causes massive neural quietening, successfully deactivating the brain's stress and fear center <span class="term-box">The Amygdala</span>.</li>
+                    <li><strong>The Cholinergic Anti-inflammatory Pathway:</strong> This is the absolute cutting edge of neuro-immunology. As detailed in <a href="https://caringmedical.com/prolotherapy-news/anti-inflammatory-capacities-vagus-nerve/" target="_blank" class="research-link">Caring Medical research</a>, when chanting stimulates the vagus nerve, the nerve sends a signal down to the spleen and the gut lining. </li>
+                    <li><strong>Shutting Down Macrophages:</strong> Upon receiving this signal from the vagus nerve, the spleen releases the neurotransmitter <em>acetylcholine</em>. This chemical specifically targets immune cells called macrophages, forcibly inhibiting them from producing toxic, pro-inflammatory cytokines like TNF-alpha and Interleukin-6 (IL-6). <strong>In short: stimulating the vagus nerve through chanting literally shuts down chronic, systemic inflammation at the cellular level.</strong></li>
+                </ul>
+
+                <blockquote>
+                    "When we chant the 1,000 names, we are not merely asking the mind to focus. We are exploiting our own anatomical wiring. The breath slows the heart, the diaphragm crushes cortisol, and the vibrating vocal cords command the spleen to erase cellular inflammation. It is a masterpiece of biological engineering."
+                </blockquote>
+
+                <div class="reference-section">
+                    <h3 class="serif" style="margin-bottom: 25px; font-size: 28px; color: var(--light-gold);">Scientific Source Material</h3>
+                    <ul class="reference-list">
+                        <li><strong>Harvard Medical School:</strong> <a href="https://www.health.harvard.edu/preventive-care/breathing-exercises-to-lower-your-blood-pressure" target="_blank">Breathing exercises to lower your blood pressure</a></li>
+                        <li><strong>National Institutes of Health (Gerritsen & Band):</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6037091/" target="_blank">Breath of Life: The Respiratory Vagal Stimulation Model of Contemplative Activity</a></li>
+                        <li><strong>Frontiers in Psychology (Ma et al.):</strong> <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00874/full" target="_blank">The Effect of Diaphragmatic Breathing on Attention, Negative Affect and Stress in Healthy Adults</a></li>
+                        <li><strong>National Institutes of Health (Hopper et al.):</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7602530/" target="_blank">Effectiveness of diaphragmatic breathing for reducing physiological and psychological stress in adults</a></li>
+                        <li><strong>Johns Hopkins Medicine:</strong> <a href="https://www.hopkinsmedicine.org/all-childrens-hospital/services/anesthesiology/pain-management/complimentary-pain-therapies/diaphragmatic-breathing" target="_blank">Diaphragmatic Breathing as Complimentary Pain Therapy</a></li>
+                        <li><strong>Cleveland Clinic:</strong> <a href="https://my.clevelandclinic.org/health/articles/9445-diaphragmatic-breathing" target="_blank">Diaphragmatic Breathing: Exercises & Benefits</a></li>
+                        <li><strong>Caring Medical & Regenerative Health:</strong> <a href="https://caringmedical.com/prolotherapy-news/anti-inflammatory-capacities-vagus-nerve/" target="_blank">Anti-inflammatory Capacities of the Vagus Nerve</a></li>
+                        <li><strong>Art of Living Foundation:</strong> <a href="https://www.artofliving.org/us-en/blog/stress/relief/benefits-of-a-long-exhale-for-stress-relief" target="_blank">Benefits of a Long Exhale for Stress Relief</a></li>
+                    </ul>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+</body>
+</html>
