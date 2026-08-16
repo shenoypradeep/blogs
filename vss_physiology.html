@@ -3,27 +3,37 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Ultimate Physiology of Chanting | Vedic Space</title>
+    <title>The Ultimate Physiology of Chanting | Vedic Space Blogs</title>
     <meta name="description" content="A profound deep-dive into the neuroscience of Vishnu Sahasranāma chanting. Discover how exhalations, diaphragmatic rhythm, and vagus nerve stimulation actively rewrite your biology.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Noto+Sans+Devanagari:wght@400;500;600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
     <style>
         /* Base Reset & Variables */
         * { margin: 0; padding: 0; box-sizing: border-box; }
         :root {
-            --primary-blue: #0f172a; --deep-blue: #020617; --light-blue: #3b82f6;
-            --accent-gold: #f59e0b; --light-gold: #fbbf24; --white: #f8fafc;
-            --text-gray: #cbd5e1; --border-color: rgba(251, 191, 36, 0.25);
+            /* Updated to a slightly brighter, richer blue gradient */
+            --primary-blue: #1e3a8a; /* Royal Blue */
+            --deep-blue: #2563eb; /* Vibrant Blue */
+            --light-blue: #60a5fa;
+            --accent-gold: #f59e0b; 
+            --light-gold: #fcd34d; 
+            --white: #f8fafc;
+            --text-gray: #e2e8f0; 
+            --border-color: rgba(251, 191, 36, 0.3);
         }
         body {
-            font-family: 'Inter', sans-serif; line-height: 1.8; color: var(--white);
-            background: linear-gradient(135deg, var(--deep-blue) 0%, var(--primary-blue) 100%);
+            /* Changed entirely to Serif for the blog aesthetic */
+            font-family: 'Lora', serif; 
+            line-height: 1.8; 
+            color: var(--white);
+            background: linear-gradient(135deg, var(--primary-blue) 0%, var(--deep-blue) 100%);
             min-height: 100vh;
         }
         .serif { font-family: 'Playfair Display', serif; }
+        .sans-serif { font-family: 'Inter', sans-serif; }
         
         /* Layout */
         .container { max-width: 900px; margin: 0 auto; padding: 0 20px; }
@@ -32,54 +42,73 @@
         /* Header & Nav */
         .header {
             position: fixed; top: 0; width: 100%;
-            background: rgba(2, 6, 23, 0.95); backdrop-filter: blur(12px);
+            background: rgba(30, 58, 138, 0.85); backdrop-filter: blur(12px);
             border-bottom: 1px solid var(--border-color); z-index: 1000; padding: 15px 0;
+            box-shadow: 0 4px 30px rgba(0,0,0,0.1);
         }
         .nav { display: flex; justify-content: space-between; align-items: center; }
-        .logo { display: flex; align-items: center; gap: 10px; color: var(--white); text-decoration: none; font-size: 24px; font-weight: 600; letter-spacing: 0.5px; }
+        .logo { 
+            display: flex; align-items: center; gap: 15px; color: var(--white); 
+            text-decoration: none; font-size: 24px; font-weight: 600; letter-spacing: 0.5px; 
+        }
         .logo img { width: 40px; height: 40px; object-fit: contain; }
+        .blog-badge {
+            font-family: 'Inter', sans-serif;
+            font-size: 12px;
+            font-weight: 600;
+            letter-spacing: 3px;
+            color: var(--light-gold);
+            padding-left: 15px;
+            border-left: 1px solid rgba(255,255,255,0.3);
+            text-transform: uppercase;
+        }
         
         /* Hero Section */
         .article-header { padding: 150px 0 70px; text-align: center; position: relative; }
-        .article-meta { color: var(--light-gold); font-size: 14px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; }
-        .article-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.15; margin-bottom: 30px; font-weight: 400; text-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-        .article-subtitle { font-size: 22px; color: var(--text-gray); max-width: 800px; margin: 0 auto 40px; line-height: 1.6; }
+        .article-meta { color: var(--light-gold); font-size: 14px; margin-bottom: 20px; text-transform: uppercase; letter-spacing: 0.15em; font-weight: 600; font-family: 'Inter', sans-serif;}
+        .article-title { font-size: clamp(2.5rem, 6vw, 4.5rem); line-height: 1.15; margin-bottom: 30px; font-weight: 600; text-shadow: 0 4px 20px rgba(0,0,0,0.2); }
+        .article-subtitle { font-size: 22px; color: var(--text-gray); max-width: 800px; margin: 0 auto 40px; line-height: 1.6; font-style: italic; }
         .divider { width: 100px; height: 3px; background: linear-gradient(135deg, var(--accent-gold), var(--light-gold)); margin: 0 auto; border-radius: 2px; box-shadow: 0 0 15px rgba(245,158,11,0.5); }
         
         /* Content Styling */
         .article-content { padding: 40px 0 80px; }
-        .content-wrapper { background: rgba(255, 255, 255, 0.02); border: 1px solid var(--border-color); border-radius: 24px; padding: 70px; margin-bottom: 60px; box-shadow: 0 25px 50px rgba(0,0,0,0.3); backdrop-filter: blur(10px); }
+        .content-wrapper { 
+            background: rgba(255, 255, 255, 0.05); 
+            border: 1px solid var(--border-color); 
+            border-radius: 24px; padding: 70px; margin-bottom: 60px; 
+            box-shadow: 0 25px 50px rgba(0,0,0,0.2); backdrop-filter: blur(15px); 
+        }
         
-        .article-content h2 { font-size: 36px; color: var(--light-gold); margin: 70px 0 35px; font-weight: 600; border-bottom: 1px solid rgba(251,191,36,0.2); padding-bottom: 15px; }
-        .article-content h3 { font-size: 26px; color: var(--white); margin: 50px 0 20px; font-weight: 600; }
-        .article-content p { margin-bottom: 28px; font-size: 19px; color: rgba(255, 255, 255, 0.95); text-align: justify; }
+        .article-content h2 { font-size: 36px; color: var(--light-gold); margin: 70px 0 35px; font-weight: 700; border-bottom: 1px solid rgba(251,191,36,0.3); padding-bottom: 15px; font-family: 'Playfair Display', serif;}
+        .article-content h3 { font-size: 26px; color: var(--white); margin: 50px 0 20px; font-weight: 600; font-family: 'Playfair Display', serif; }
+        .article-content p { margin-bottom: 28px; font-size: 20px; color: rgba(255, 255, 255, 0.95); text-align: justify; }
         .article-content ul { margin: 30px 0 30px 25px; }
-        .article-content li { margin-bottom: 25px; font-size: 18px; color: rgba(255, 255, 255, 0.95); line-height: 1.7; }
-        .article-content strong { color: var(--white); font-weight: 700; background: rgba(251,191,36,0.1); padding: 0 4px; border-radius: 4px; }
+        .article-content li { margin-bottom: 25px; font-size: 19px; color: rgba(255, 255, 255, 0.95); line-height: 1.7; }
+        .article-content strong { color: var(--white); font-weight: 700; background: rgba(251,191,36,0.15); padding: 2px 6px; border-radius: 4px; }
         
         /* Terminology Callout */
-        .term-box { display: inline-block; background: rgba(59, 130, 246, 0.15); border: 1px solid var(--light-blue); color: var(--white); padding: 2px 8px; border-radius: 6px; font-size: 16px; vertical-align: middle; margin: 0 4px; white-space: nowrap; }
+        .term-box { display: inline-block; background: rgba(255, 255, 255, 0.1); border: 1px solid var(--light-gold); color: var(--light-gold); padding: 2px 10px; border-radius: 6px; font-size: 15px; vertical-align: middle; margin: 0 4px; white-space: nowrap; font-family: 'Inter', sans-serif; font-weight: 500;}
         .highlight-text { color: var(--light-gold); font-weight: 600; }
 
         /* Links */
-        .research-link { color: var(--light-blue); text-decoration: none; font-weight: 600; border-bottom: 1px dotted var(--light-blue); transition: color 0.2s, border-color 0.2s; }
-        .research-link:hover { color: var(--light-gold); border-bottom: 1px solid var(--light-gold); }
+        .research-link { color: var(--light-gold); text-decoration: none; font-weight: 600; border-bottom: 1px dotted var(--light-gold); transition: color 0.2s, border-color 0.2s; }
+        .research-link:hover { color: var(--white); border-bottom: 1px solid var(--white); }
         
         /* Inline SVG Diagrams */
-        .diagram-box { background: rgba(0,0,0,0.4); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px 30px; margin: 50px 0; text-align: center; position: relative; overflow: hidden; }
-        .diagram-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--light-gold), transparent); opacity: 0.5; }
-        .diagram-caption { font-size: 16px; color: var(--text-gray); margin-top: 30px; font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
-        .svg-canvas { max-width: 100%; height: auto; drop-shadow: 0 10px 20px rgba(0,0,0,0.6); }
+        .diagram-box { background: rgba(0,0,0,0.15); border: 1px solid var(--border-color); border-radius: 20px; padding: 50px 30px; margin: 50px 0; text-align: center; position: relative; overflow: hidden; box-shadow: inset 0 0 20px rgba(0,0,0,0.1);}
+        .diagram-box::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: linear-gradient(90deg, transparent, var(--light-gold), transparent); opacity: 0.8; }
+        .diagram-caption { font-size: 16px; color: rgba(255,255,255,0.8); margin-top: 30px; font-style: italic; max-width: 700px; margin-left: auto; margin-right: auto; line-height: 1.6; }
+        .svg-canvas { max-width: 100%; height: auto; drop-shadow: 0 10px 20px rgba(0,0,0,0.3); }
 
         /* Blockquotes */
-        blockquote { border-left: 4px solid var(--accent-gold); margin: 60px 0; padding: 40px 50px; font-size: 22px; color: var(--white); background: linear-gradient(90deg, rgba(251, 191, 36, 0.08) 0%, transparent 100%); border-radius: 0 20px 20px 0; font-style: italic; line-height: 1.6; }
+        blockquote { border-left: 4px solid var(--accent-gold); margin: 60px 0; padding: 40px 50px; font-size: 24px; color: var(--white); background: linear-gradient(90deg, rgba(251, 191, 36, 0.1) 0%, transparent 100%); border-radius: 0 20px 20px 0; font-style: italic; line-height: 1.6; font-family: 'Playfair Display', serif;}
         
         /* Reference List */
-        .reference-section { margin-top: 80px; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.1); }
+        .reference-section { margin-top: 80px; padding-top: 50px; border-top: 1px solid rgba(255,255,255,0.2); }
         .reference-list { list-style: none; margin: 0; padding: 0; }
-        .reference-list li { font-size: 16px; margin-bottom: 20px; color: var(--text-gray); line-height: 1.6; }
-        .reference-list a { color: var(--light-blue); text-decoration: none; }
-        .reference-list a:hover { text-decoration: underline; color: var(--light-gold); }
+        .reference-list li { font-size: 16px; margin-bottom: 20px; color: rgba(255,255,255,0.85); line-height: 1.6; }
+        .reference-list a { color: var(--light-gold); text-decoration: none; font-weight: 500; font-family: 'Inter', sans-serif;}
+        .reference-list a:hover { text-decoration: underline; color: var(--white); }
 
         @media (max-width: 768px) {
             .content-wrapper { padding: 40px 25px; }
@@ -96,6 +125,7 @@
                 <a href="/" class="logo serif">
                     <img src="./assets/logo.webp" alt="Vedic Space">
                     Vedic Space
+                    <span class="blog-badge">Blogs</span>
                 </a>
             </nav>
         </div>
@@ -139,38 +169,39 @@
                     <svg class="svg-canvas" viewBox="0 0 700 280" xmlns="http://www.w3.org/2000/svg">
                         <defs>
                             <linearGradient id="waveGrad" x1="0%" y1="0%" x2="100%" y2="0%">
-                                <stop offset="0%" stop-color="#f59e0b" />
-                                <stop offset="25%" stop-color="#3b82f6" />
-                                <stop offset="100%" stop-color="#3b82f6" />
+                                <stop offset="0%" stop-color="#fcd34d" />
+                                <stop offset="25%" stop-color="#ffffff" />
+                                <stop offset="100%" stop-color="#ffffff" />
                             </linearGradient>
                         </defs>
-                        <line x1="50" y1="200" x2="650" y2="200" stroke="rgba(255,255,255,0.2)" stroke-width="2"/>
-                        <text x="35" y="205" fill="#cbd5e1" font-family="Inter" font-size="14">Time</text>
+                        <line x1="50" y1="200" x2="650" y2="200" stroke="rgba(255,255,255,0.4)" stroke-width="2"/>
+                        <text x="35" y="205" fill="#e2e8f0" font-family="Inter" font-size="14">Time</text>
                         
                         <path d="M 100 200 C 130 50, 160 50, 200 200 C 350 260, 500 260, 600 200" fill="none" stroke="url(#waveGrad)" stroke-width="6" stroke-linecap="round"/>
                         
-                        <line x1="150" y1="50" x2="150" y2="200" stroke="#f59e0b" stroke-dasharray="5,5" stroke-width="2"/>
-                        <text x="150" y="35" fill="#f59e0b" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Peak Inhale (Heart Rate Max)</text>
+                        <line x1="150" y1="50" x2="150" y2="200" stroke="#fcd34d" stroke-dasharray="5,5" stroke-width="2"/>
+                        <text x="150" y="35" fill="#fcd34d" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Peak Inhale (Heart Rate Max)</text>
                         
-                        <text x="400" y="275" fill="#3b82f6" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Extended Chanted Exhale (Heart Rate Minimized)</text>
+                        <text x="400" y="275" fill="#ffffff" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Extended Chanted Exhale (Heart Rate Minimized)</text>
                         
-                        <rect x="250" y="90" width="280" height="60" rx="8" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="1"/>
-                        <text x="390" y="115" fill="#fff" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Vagus Nerve Secretes Acetylcholine</text>
-                        <text x="390" y="135" fill="rgba(255,255,255,0.8)" font-family="Inter" font-size="13" text-anchor="middle">(Forcing Vasodilation & Heart Deceleration)</text>
+                        <rect x="250" y="90" width="280" height="60" rx="8" fill="rgba(255, 255, 255, 0.15)" stroke="#ffffff" stroke-width="1"/>
+                        <text x="390" y="115" fill="#ffffff" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Vagus Nerve Secretes Acetylcholine</text>
+                        <text x="390" y="135" fill="rgba(255,255,255,0.9)" font-family="Inter" font-size="13" text-anchor="middle">(Forcing Vasodilation & Heart Deceleration)</text>
                     </svg>
                     <div class="diagram-caption">Respiratory Sinus Arrhythmia (RSA): By artificially prolonging the exhalation phase through chanting, we trap the nervous system in a prolonged state of parasympathetic deceleration, creating extreme cardiovascular stability.</div>
                 </div>
 
                 <h3>The Clinical Deep Dive: Exhalation Mechanics</h3>
                 <ul>
-                    <li><strong>Harvard Medical School on Vasodilation:</strong> <a href="#" class="research-link">Harvard Medical research</a> reveals the pure mechanics of the exhale. As you slowly release air, pressure inside the chest cavity rises. This pressure is detected by <em>baroreceptors</em> (blood pressure sensors in the neck and heart). To compensate for the rising chest pressure, your nervous system automatically forces your blood vessels to dilate (widen) and lowers your heart rate. Doing this repeatedly can drop systolic blood pressure by up to 10 points.</li>
-                    <li><strong>Maximizing HRV & Decision Making:</strong> A landmark paper in the NIH database by Gerritsen & Band (2018) established the <a href="#" class="research-link">"Respiratory Vagal Stimulation Model."</a> They proved that slow breathing with extended exhales maximizes <strong>Heart Rate Variability (HRV)</strong>. HRV measures the exact millisecond fluctuations between heartbeats. A high HRV means your autonomic nervous system is highly adaptable, shifting from action to rest flawlessly. High HRV is the holy grail metric for emotional resilience. Furthermore, corroborating studies (De Couck et al., 2019) proved that just two minutes of this breathing measurably improved cognitive performance in high-stakes business decision-making.</li>
-                    <li><strong>The Ultimate Safety Signal:</strong> As the <a href="#" class="research-link">Art of Living Foundation</a> explains, because the out-breath is intrinsically linked to the parasympathetic nervous system, consciously extending it acts as a neurological "brake pedal." It sends an immediate, physical signal of safety to the primitive brainstem, overriding acute anxiety and panic loops in real-time.</li>
+                    <li><strong>Harvard Medical School on Vasodilation:</strong> <a href="https://www.health.harvard.edu/preventive-care/breathing-exercises-to-lower-your-blood-pressure" target="_blank" class="research-link">Harvard Medical research</a> reveals the pure mechanics of the exhale. As you slowly release air, pressure inside the chest cavity rises. This pressure is detected by <em>baroreceptors</em> (blood pressure sensors). To compensate for the rising chest pressure, your nervous system automatically forces your blood vessels to dilate (widen) and lowers your heart rate. Doing this repeatedly can drop systolic blood pressure by up to 10 points.</li>
+                    <li><strong>Maximizing HRV & Decision Making:</strong> A landmark paper in the NIH database by Gerritsen & Band (2018) established the <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC6037091/" target="_blank" class="research-link">"Respiratory Vagal Stimulation Model."</a> They proved that slow breathing with extended exhales maximizes <strong>Heart Rate Variability (HRV)</strong>. A high HRV means your autonomic nervous system is highly adaptable, shifting from action to rest flawlessly. High HRV is the holy grail metric for emotional resilience. Furthermore, corroborating studies proved that just two minutes of this breathing measurably improved cognitive performance in high-stakes decision-making.</li>
+                    <li><strong>The Bohr Effect & Oxygenation:</strong> A slower, extended exhalation builds healthy carbon dioxide (CO2) tolerance. According to the physiological principle known as the Bohr Effect, a slightly higher concentration of CO2 in the blood actually signals hemoglobin to release oxygen more efficiently to the brain and muscle tissues, increasing deep mental alertness.</li>
+                    <li><strong>Shifting Brain Waves:</strong> The <a href="https://www.artofliving.org/us-en/blog/stress/relief/benefits-of-a-long-exhale-for-stress-relief" target="_blank" class="research-link">Art of Living Foundation</a> and associated neuro-studies note that a long exhale acts as a neurological "brake pedal." It immediately shifts the brain out of frantic <em>Beta</em> wave frequencies (associated with anxiety and overthinking) into smoother <em>Alpha</em> and <em>Theta</em> waves, deeply conducive to meditative absorption.</li>
                 </ul>
 
                 <h2>2. Diaphragmatic Breathing: The Core Engine</h2>
                 <p>
-                    When we are stressed, anxious, or sedentary, we unconsciously shift to shallow "chest breathing," which signals the body that we are in danger. However, you cannot physically sustain a 1,000-name chant using chest breathing—you will run out of air. 
+                    When we are stressed, anxious, or sedentary, we unconsciously shift to shallow "chest breathing," which signals the body that we are in danger. However, you cannot physically sustain a 1,000-name chant using chest breathing—you will simply run out of air. 
                 </p>
                 <p>
                     Chanting mechanically forces the practitioner into deep <strong>Diaphragmatic Breathing</strong>. The diaphragm is a massive, parachute-shaped muscle sitting at the base of your lungs. When you inhale properly, it flexes downward, creating a vacuum that pulls air deep into the heavily-perfused lower lung bases while pushing your stomach out. As you chant, the diaphragm slowly recoils upward, providing a steady, controlled stream of pressurized air to vibrate the vocal cords.
@@ -178,34 +209,35 @@
 
                 <div class="diagram-box">
                     <svg class="svg-canvas" viewBox="0 0 600 340" xmlns="http://www.w3.org/2000/svg">
-                        <path d="M 250 60 Q 180 60, 180 200 Q 180 270, 250 250 Q 310 200, 310 120 Z" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="2"/>
-                        <path d="M 350 60 Q 420 60, 420 200 Q 420 270, 350 250 Q 290 200, 290 120 Z" fill="rgba(59, 130, 246, 0.15)" stroke="#3b82f6" stroke-width="2"/>
+                        <path d="M 250 60 Q 180 60, 180 200 Q 180 270, 250 250 Q 310 200, 310 120 Z" fill="rgba(255, 255, 255, 0.15)" stroke="#ffffff" stroke-width="2"/>
+                        <path d="M 350 60 Q 420 60, 420 200 Q 420 270, 350 250 Q 290 200, 290 120 Z" fill="rgba(255, 255, 255, 0.15)" stroke="#ffffff" stroke-width="2"/>
                         
-                        <rect x="285" y="10" width="30" height="70" fill="none" stroke="#fff" stroke-width="3" rx="5"/>
+                        <rect x="285" y="10" width="30" height="70" fill="none" stroke="#fcd34d" stroke-width="3" rx="5"/>
                         
-                        <path d="M 160 260 Q 300 340, 440 260" fill="none" stroke="#f59e0b" stroke-width="4" stroke-dasharray="8,6"/>
-                        <text x="300" y="325" fill="#f59e0b" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Diaphragm Flexes Downward (Deep Inhale)</text>
+                        <path d="M 160 260 Q 300 340, 440 260" fill="none" stroke="#fcd34d" stroke-width="4" stroke-dasharray="8,6"/>
+                        <text x="300" y="325" fill="#fcd34d" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Diaphragm Flexes Downward (Deep Inhale)</text>
                         
-                        <path d="M 170 230 Q 300 140, 430 230" fill="none" stroke="#fff" stroke-width="5"/>
-                        <text x="300" y="165" fill="#fff" font-family="Inter" font-size="15" font-weight="700" text-anchor="middle">Diaphragm Recoils Upward (Chanting Exhale)</text>
+                        <path d="M 170 230 Q 300 140, 430 230" fill="none" stroke="#ffffff" stroke-width="5"/>
+                        <text x="300" y="165" fill="#ffffff" font-family="Inter" font-size="15" font-weight="700" text-anchor="middle">Diaphragm Recoils Upward (Chanting Exhale)</text>
                         
-                        <circle cx="215" cy="220" r="25" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2" stroke-dasharray="3,3"/>
-                        <circle cx="385" cy="220" r="25" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="2" stroke-dasharray="3,3"/>
+                        <circle cx="215" cy="220" r="25" fill="rgba(252, 211, 77, 0.3)" stroke="#fcd34d" stroke-width="2" stroke-dasharray="3,3"/>
+                        <circle cx="385" cy="220" r="25" fill="rgba(252, 211, 77, 0.3)" stroke="#fcd34d" stroke-width="2" stroke-dasharray="3,3"/>
                         
-                        <text x="100" y="150" fill="#10b981" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle">Maximized</text>
-                        <text x="100" y="170" fill="#10b981" font-family="Inter" font-size="13" text-anchor="middle">Oxygen / CO2</text>
-                        <text x="100" y="190" fill="#10b981" font-family="Inter" font-size="13" text-anchor="middle">Exchange in</text>
-                        <text x="100" y="210" fill="#10b981" font-family="Inter" font-size="13" text-anchor="middle">Lower Lungs</text>
-                        <path d="M 150 180 Q 180 200, 200 210" fill="none" stroke="#10b981" stroke-width="2" marker-end="url(#arrow)"/>
+                        <text x="100" y="150" fill="#fcd34d" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle">Maximized</text>
+                        <text x="100" y="170" fill="#fcd34d" font-family="Inter" font-size="13" text-anchor="middle">Oxygen / CO2</text>
+                        <text x="100" y="190" fill="#fcd34d" font-family="Inter" font-size="13" text-anchor="middle">Exchange in</text>
+                        <text x="100" y="210" fill="#fcd34d" font-family="Inter" font-size="13" text-anchor="middle">Lower Lungs</text>
+                        <path d="M 150 180 Q 180 200, 200 210" fill="none" stroke="#fcd34d" stroke-width="2" marker-end="url(#arrow)"/>
                     </svg>
-                    <div class="diagram-caption">The Diaphragmatic Engine: Pulling air into the lower lung bases engages parasympathetic nerve receptors located there, while massively improving metabolic efficiency.</div>
+                    <div class="diagram-caption">The Diaphragmatic Engine: Pulling air into the lower lung bases engages parasympathetic nerve receptors located there, while massively improving metabolic efficiency and massaging internal organs.</div>
                 </div>
 
                 <h3>The Clinical Deep Dive: The Diaphragm</h3>
                 <ul>
-                    <li><strong>Crushing Cortisol & Boosting Cognition:</strong> Cortisol <span class="term-box">The primary stress hormone</span> is secreted by the adrenal glands during times of perceived threat. It causes weight gain, anxiety, and brain fog. A rigorous 8-week controlled study published in <a href="#" class="research-link">Frontiers in Psychology (Ma et al., 2017)</a> proved that diaphragmatic breathing causes a massive, measurable drop in salivary cortisol. Furthermore, because cortisol no longer impaired the brain's prefrontal cortex, participants experienced drastically improved sustained cognitive attention and significantly reduced negative affect.</li>
-                    <li><strong>Metabolic Efficiency:</strong> The <a href="#" class="research-link">Cleveland Clinic</a> notes that engaging in this deep belly breathing physically strengthens the diaphragm. Because the lower lungs are highly perfused with blood vessels, air drawn deeply into them allows for maximum oxygen-to-carbon-dioxide exchange. This decreases the overall physical work of breathing and lowers the body's baseline oxygen demand.</li>
-                    <li><strong>Altering Pain Perception:</strong> <a href="#" class="research-link">Johns Hopkins Medicine</a> utilizes deep belly breathing as a frontline complementary pain therapy. Because the diaphragm is intimately connected to the autonomic nervous system, rhythmic flexing physically relaxes global muscle tension and alters the neurochemistry of how the brain perceives physical pain. A 2026 RCT (PLOS ONE) even found that 8 weeks of this breathing improved physical balance, gait, and reduced the fear of falling in older adults.</li>
+                    <li><strong>Crushing Cortisol & Boosting Cognition:</strong> Cortisol <span class="term-box">The primary stress hormone</span> is secreted by the adrenal glands during times of perceived threat. It causes weight gain, anxiety, and brain fog. A rigorous 8-week controlled study published in <a href="https://www.frontiersin.org/journals/psychology/articles/10.3389/fpsyg.2017.00874/full" target="_blank" class="research-link">Frontiers in Psychology (Ma et al., 2017)</a> proved that diaphragmatic breathing causes a massive, measurable drop in salivary cortisol. Because cortisol no longer impaired the brain's prefrontal cortex, participants experienced drastically improved sustained cognitive attention and significantly reduced negative affect.</li>
+                    <li><strong>Lymphatic Pumping & Massaging Organs:</strong> The <a href="https://my.clevelandclinic.org/health/articles/9445-diaphragmatic-breathing" target="_blank" class="research-link">Cleveland Clinic</a> notes that engaging this muscle decreases the overall physical work of breathing. Furthermore, the diaphragm acts as a massive internal pump. Its deep rhythmic downward movement creates pressure changes that physically pump lymphatic fluid (removing toxins from the body) while gently massaging the liver, stomach, and intestines, directly aiding digestion.</li>
+                    <li><strong>Systematic Stress Reduction:</strong> A systematic review in the <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC7602530/" target="_blank" class="research-link">NIH database (Hopper et al.)</a> confirmed that diaphragmatic breathing consistently lowers baseline physiological stress markers (respiratory rate and blood pressure) across completely diverse adult populations.</li>
+                    <li><strong>Altering Pain Perception:</strong> <a href="https://www.hopkinsmedicine.org/all-childrens-hospital/services/anesthesiology/pain-management/complimentary-pain-therapies/diaphragmatic-breathing" target="_blank" class="research-link">Johns Hopkins Medicine</a> utilizes deep belly breathing as a frontline complementary pain therapy. Because the diaphragm is intimately connected to the autonomic nervous system, rhythmic flexing physically relaxes global muscle tension, stabilizes the pelvic floor, and alters the neurochemistry of how the brain perceives physical pain.</li>
                 </ul>
 
                 <h2>3. The Vagus Nerve: Erasing Cellular Inflammation</h2>
@@ -218,40 +250,42 @@
 
                 <div class="diagram-box">
                     <svg class="svg-canvas" viewBox="0 0 700 500" xmlns="http://www.w3.org/2000/svg">
-                        <rect x="300" y="20" width="100" height="50" rx="12" fill="rgba(251, 191, 36, 0.15)" stroke="#f59e0b" stroke-width="3"/>
+                        <rect x="300" y="20" width="100" height="50" rx="12" fill="rgba(255, 255, 255, 0.15)" stroke="#ffffff" stroke-width="3"/>
                         <text x="350" y="50" fill="#fff" font-family="Inter" font-size="16" font-weight="700" text-anchor="middle">Brainstem</text>
 
-                        <path d="M 350 70 L 350 420" fill="none" stroke="#fbbf24" stroke-width="5" stroke-linecap="round"/>
+                        <path d="M 350 70 L 350 420" fill="none" stroke="#fcd34d" stroke-width="5" stroke-linecap="round"/>
 
                         <path d="M 350 150 L 220 150" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5,5"/>
-                        <circle cx="180" cy="150" r="40" fill="rgba(59, 130, 246, 0.2)" stroke="#3b82f6" stroke-width="3"/>
+                        <circle cx="180" cy="150" r="40" fill="rgba(255, 255, 255, 0.2)" stroke="#ffffff" stroke-width="3"/>
                         <text x="180" y="145" fill="#fff" font-family="Inter" font-size="15" font-weight="700" text-anchor="middle">Vocal Cords</text>
-                        <text x="180" y="165" fill="#cbd5e1" font-family="Inter" font-size="12" text-anchor="middle">(Laryngeal Nerve)</text>
-                        <path d="M 120 120 Q 90 150, 120 180" fill="none" stroke="#3b82f6" stroke-width="3"/>
-                        <path d="M 100 100 Q 60 150, 100 200" fill="none" stroke="#3b82f6" stroke-width="3"/>
-                        <text x="80" y="230" fill="#3b82f6" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Acoustic Massage</text>
+                        <text x="180" y="165" fill="#e2e8f0" font-family="Inter" font-size="12" text-anchor="middle">(Laryngeal Nerve)</text>
+                        <path d="M 120 120 Q 90 150, 120 180" fill="none" stroke="#fcd34d" stroke-width="3"/>
+                        <path d="M 100 100 Q 60 150, 100 200" fill="none" stroke="#fcd34d" stroke-width="3"/>
+                        <text x="80" y="230" fill="#fcd34d" font-family="Inter" font-size="14" font-weight="600" text-anchor="middle">Acoustic Massage</text>
 
                         <path d="M 350 250 L 480 250" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5,5"/>
-                        <path d="M 520 260 Q 480 210, 470 260 Q 440 310, 520 310 Q 560 310, 560 260 Z" fill="rgba(239, 68, 68, 0.2)" stroke="#ef4444" stroke-width="3"/>
-                        <text x="515" y="335" fill="#ef4444" font-family="Inter" font-size="15" font-weight="700" text-anchor="middle">Heart (Pacing)</text>
+                        <path d="M 520 260 Q 480 210, 470 260 Q 440 310, 520 310 Q 560 310, 560 260 Z" fill="rgba(255, 255, 255, 0.3)" stroke="#ffffff" stroke-width="3"/>
+                        <text x="515" y="335" fill="#ffffff" font-family="Inter" font-size="15" font-weight="700" text-anchor="middle">Heart (Pacing)</text>
 
                         <path d="M 350 380 L 220 380" fill="none" stroke="#fff" stroke-width="2" stroke-dasharray="5,5"/>
-                        <rect x="90" y="350" width="130" height="60" rx="20" fill="rgba(16, 185, 129, 0.2)" stroke="#10b981" stroke-width="3"/>
-                        <text x="155" y="385" fill="#10b981" font-family="Inter" font-size="16" font-weight="700" text-anchor="middle">Spleen & Gut</text>
+                        <rect x="90" y="350" width="130" height="60" rx="20" fill="rgba(252, 211, 77, 0.2)" stroke="#fcd34d" stroke-width="3"/>
+                        <text x="155" y="385" fill="#fcd34d" font-family="Inter" font-size="16" font-weight="700" text-anchor="middle">Spleen & Gut</text>
                         
-                        <rect x="420" y="380" width="250" height="90" rx="10" fill="rgba(16,185,129,0.1)" stroke="#10b981" stroke-width="2"/>
-                        <text x="545" y="405" fill="#fff" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle">Cholinergic Anti-Inflammatory Pathway</text>
-                        <text x="545" y="430" fill="#cbd5e1" font-family="Inter" font-size="12" text-anchor="middle">1. Spleen releases Acetylcholine.</text>
-                        <text x="545" y="450" fill="#cbd5e1" font-family="Inter" font-size="12" text-anchor="middle">2. Inhibits Macrophages & TNF-alpha.</text>
+                        <rect x="420" y="380" width="250" height="90" rx="10" fill="rgba(0,0,0,0.4)" stroke="#fcd34d" stroke-width="2"/>
+                        <text x="545" y="405" fill="#fcd34d" font-family="Inter" font-size="13" font-weight="600" text-anchor="middle">Anti-Inflammatory Pathway</text>
+                        <text x="545" y="430" fill="#e2e8f0" font-family="Inter" font-size="12" text-anchor="middle">1. Spleen releases Acetylcholine.</text>
+                        <text x="545" y="450" fill="#e2e8f0" font-family="Inter" font-size="12" text-anchor="middle">2. Inhibits Macrophages & TNF-alpha.</text>
                     </svg>
                     <div class="diagram-caption">The Cholinergic Anti-Inflammatory Pathway: The physical vibration of the vocal cords during chanting sends electrical impulses up to the brainstem, which then routes powerful anti-inflammatory commands down to the spleen.</div>
                 </div>
 
-                <h3>The Clinical Deep Dive: Vocal Vibration</h3>
+                <h3>The Clinical Deep Dive: Vocal Vibration & Neurochemistry</h3>
                 <ul>
-                    <li><strong>Deactivating the Fear Center (fMRI):</strong> When you vocalize highly structured Sanskrit syllables, you create a deep physical humming in the throat. A landmark functional MRI study by <a href="#" class="research-link">Kalmady et al. (2011, NIMHANS)</a> monitored volunteers chanting OM audibly. The physical vibration acted as a massive acoustic massage for the vagal nerve endings. This resulted in significant bilateral deactivation of the brain's <strong>Amygdala</strong> <span class="term-box">The primitive fear and stress center</span>, the orbitofrontal cortex, and hippocampi. The researchers explicitly noted this neural quietening perfectly mirrors the effects of surgically implanted Vagus Nerve Stimulation (VNS) devices used to treat clinical depression and epilepsy.</li>
-                    <li><strong>The Universal 6-Breath Synchronization:</strong> A classic cross-tradition study published in the <a href="#" class="research-link">British Medical Journal (Bernardi et al., 2001)</a> compared Sanskrit mantra chanting with the Latin rosary. Astoundingly, both traditions independently converged on a breathing rate of almost exactly <strong>6 breaths per minute</strong>. This specific cadence synchronized and reinforced existing cardiovascular rhythms and drastically increased baroreflex sensitivity (the body's ability to regulate blood pressure).</li>
-                    <li><strong>The Cholinergic Anti-inflammatory Pathway:</strong> This is the absolute cutting edge of neuro-immunology. As detailed by <a href="#" class="research-link">Caring Medical & Regenerative Health</a>, when chanting stimulates the vagus nerve, the nerve sends a signal down into the abdomen to the spleen. Upon receiving this signal, specialized T-cells in the spleen release the neurotransmitter <em>acetylcholine</em>. This chemical specifically targets <strong>macrophages</strong> <span class="term-box">Specialized white blood immune cells</span>, forcibly inhibiting them from producing toxic, pro-inflammatory cytokines like <strong>TNF-alpha</strong> and <strong>Interleukin-6</strong>. <br><br><span class="highlight-text">In short: stimulating the vagus nerve through audible chanting literally shuts down chronic, systemic inflammation at the cellular level.</span></li>
+                    <li><strong>Deactivating the Fear Center (fMRI):</strong> When you vocalize highly structured Sanskrit syllables, you create a deep physical humming in the throat. A landmark functional MRI study by <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3099099/" target="_blank" class="research-link">Kalmady et al. (2011, NIMHANS)</a> monitored volunteers chanting OM audibly. The physical vibration acted as a massive acoustic massage for the vagal nerve endings. This resulted in significant bilateral deactivation of the brain's <strong>Amygdala</strong> <span class="term-box">The primitive fear and stress center</span>, the orbitofrontal cortex, and hippocampi. The researchers explicitly noted this neural quietening perfectly mirrors the effects of surgically implanted Vagus Nerve Stimulation (VNS) devices.</li>
+                    <li><strong>Nitric Oxide Release:</strong> The humming vibration in the nasal cavity and pharynx during structured chanting drastically increases the production of <strong>Nitric Oxide (NO)</strong> by up to 15 times compared to silent breathing. Nitric Oxide is a potent vasodilator that expands blood vessels, improves systemic blood flow, and acts as a powerful antiviral and antibacterial agent in the respiratory tract.</li>
+                    <li><strong>The Gut-Brain Axis & Neuroplasticity:</strong> 80% of vagus nerve fibers are sensory, carrying information <em>from</em> the organs <em>to</em> the brain. By soothing the physical gut via diaphragmatic pressure and vagal tone, chanting literally sends signals to the brain that the environment is safe. This state of safety promotes the release of <strong>BDNF (Brain-Derived Neurotrophic Factor)</strong>, a protein responsible for growing new neural pathways, essentially "rewiring" the brain for long-term peace.</li>
+                    <li><strong>The Universal 6-Breath Synchronization:</strong> A classic cross-tradition study published in the <a href="https://www.bmj.com/content/323/7327/1446" target="_blank" class="research-link">British Medical Journal (Bernardi et al., 2001)</a> compared Sanskrit mantra chanting with the Latin rosary. Astoundingly, both traditions independently converged on a breathing rate of almost exactly <strong>6 breaths per minute</strong>. This specific cadence synchronized and reinforced existing cardiovascular rhythms and drastically increased baroreflex sensitivity.</li>
+                    <li><strong>The Cholinergic Anti-inflammatory Pathway:</strong> This is the absolute cutting edge of neuro-immunology. As detailed by <a href="https://caringmedical.com/prolotherapy-news/anti-inflammatory-capacities-vagus-nerve/" target="_blank" class="research-link">Caring Medical & Regenerative Health</a>, when chanting stimulates the vagus nerve, the nerve sends a signal down into the abdomen to the spleen. Upon receiving this signal, specialized T-cells in the spleen release the neurotransmitter <em>acetylcholine</em>. This chemical specifically targets <strong>macrophages</strong> <span class="term-box">White blood immune cells</span>, forcibly inhibiting them from producing toxic, pro-inflammatory cytokines like <strong>TNF-alpha</strong> and <strong>Interleukin-6</strong>. <br><br><span class="highlight-text">In short: stimulating the vagus nerve through audible chanting literally shuts down chronic, systemic inflammation at the cellular level.</span></li>
                 </ul>
 
                 <blockquote>
@@ -273,8 +307,8 @@
                         <li><strong>Cleveland Clinic:</strong> <a href="https://my.clevelandclinic.org/health/articles/9445-diaphragmatic-breathing" target="_blank">Diaphragmatic Breathing: Exercises & Benefits</a> — Details the metabolic efficiency and reduced oxygen demand achieved by strengthening the diaphragm.</li>
                         <li><strong>Caring Medical & Regenerative Health:</strong> <a href="https://caringmedical.com/prolotherapy-news/anti-inflammatory-capacities-vagus-nerve/" target="_blank">Anti-inflammatory Capacities of the Vagus Nerve</a> — Groundbreaking neuro-immunology on the Cholinergic Anti-inflammatory Pathway, acetylcholine, macrophages, and TNF-alpha suppression.</li>
                         <li><strong>Art of Living Foundation:</strong> <a href="https://www.artofliving.org/us-en/blog/stress/relief/benefits-of-a-long-exhale-for-stress-relief" target="_blank">Benefits of a Long Exhale for Stress Relief</a> — Explains the neurological "brake pedal" mechanism overriding panic loops.</li>
-                        <li><strong>British Medical Journal (Bernardi L, et al., 2001):</strong> <a href="#" target="_blank">Effect of rosary prayer and yoga mantras on autonomic cardiovascular rhythms: comparative study</a> — The cross-tradition discovery of the 6-breath per minute cardiovascular synchronization.</li>
-                        <li><strong>International Journal of Yoga (Kalmady SV, et al., 2011):</strong> <a href="#" target="_blank">Neurohemodynamic correlates of 'OM' chanting: A pilot functional magnetic resonance imaging study</a> — The NIMHANS fMRI study proving the deactivation of the amygdala via acoustic vagal massage.</li>
+                        <li><strong>British Medical Journal (Bernardi L, et al., 2001):</strong> <a href="https://www.bmj.com/content/323/7327/1446" target="_blank">Effect of rosary prayer and yoga mantras on autonomic cardiovascular rhythms: comparative study</a> — The cross-tradition discovery of the 6-breath per minute cardiovascular synchronization.</li>
+                        <li><strong>International Journal of Yoga (Kalmady SV, et al., 2011):</strong> <a href="https://pmc.ncbi.nlm.nih.gov/articles/PMC3099099/" target="_blank">Neurohemodynamic correlates of 'OM' chanting: A pilot functional magnetic resonance imaging study</a> — The NIMHANS fMRI study proving the deactivation of the amygdala via acoustic vagal massage.</li>
                     </ul>
                 </div>
 
